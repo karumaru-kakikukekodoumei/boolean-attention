@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>チャット編 — Boolean Attention</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="./">
+      <div class="brand-logo">01</div>
+      <div><div class="brand-name">かるまるラボ</div></div>
+      <div class="brand-tagline">/ Boolean Attention 2026.05</div>
+    </a>
+    <nav class="site-nav">
+      <a href="./">Overview</a>
+      <a href="theory.html">Theory</a>
+      <a href="experiments.html">Experiments</a>
+      <a href="chat.html" class="active">Chat</a>
+      <a href="https://github.com/karumaru-kakikukekodoumei/boolean-attention" target="_blank">GitHub →</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="hero-chip" style="background: var(--red-dim); border-color: var(--red); color: var(--red);">// FAILURE LOG · CHATBOT ATTEMPT</div>
+    <h2 class="section-title" data-index="!!">ChatHBA はなぜ崩壊したか</h2>
+    <p>研究で TF 越えを達成した HBA で、実際に会話できるモデルを作ろうとした試み。<strong>結論から言うと、会話は崩壊しました。</strong>学び多い失敗として記録します。</p>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="01">やったこと</h2>
+    <ol>
+      <li>英語の Q&amp;A データを自前で <strong>5,377 件生成</strong> (46 カテゴリ)</li>
+      <li>char-level vocab を Q&amp;A 全体から再構築</li>
+      <li>HBA v2 と同じ構造のモデル (容量だけ少し増やした) を fine-tune</li>
+      <li>インストラクション風プロンプト <code>Q: ... A: ...</code> 形式で学習</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="02">結果</h2>
+    <table class="result-table">
+      <thead><tr><th>指標</th><th class="num">値</th></tr></thead>
+      <tbody>
+        <tr><td>訓練 PPL</td><td class="num">6.46</td></tr>
+        <tr class="bad"><td><strong>体感的な会話品質</strong></td><td class="num"><strong>完全崩壊</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h3>実際の生成例</h3>
+    <pre data-lang="repl">Q: What is the capital of France?
+A: It is Otewkia.
+
+Q: How are you today?
+A: ::: h.
+
+Q: Tell me a joke.
+A: The is the is the is the...</pre>
+
+    <p>数値上の PPL (6.46) は HBA v2 の 5.32 とそう違わないのに、<strong>実際に走らせると意味のあるテキストが出てこない</strong>。</p>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="03">なぜ崩壊したか — 3 つの仮説</h2>
+
+    <div class="cards">
+      <div class="card bad">
+        <div class="card-tag">仮説 01</div>
+        <h3>char-LM の根本的限界</h3>
+        <p>char-LM は文字単位の予測なので、<code>F-r-a-n-c-e → P-a-r-i-s</code> のような長距離の概念連鎖を学ぶには context 64 文字では足りません。語彙ベース LM なら 1 トークンで完結する関係が、char では 8-10 ステップに分解されます。</p>
+      </div>
+      <div class="card bad">
+        <div class="card-tag">仮説 02</div>
+        <h3>データ量 vs 容量のバランス</h3>
+        <p>5,377 QA で 46 カテゴリは、各カテゴリ平均 120 件程度。HBA の容量に対してデータ規模が中途半端で、<strong>汎化ではなく丸暗記モードに陥った</strong>可能性。訓練 PPL が下がっても汎化テストで意味のある文が出てこないのは過学習に近い症状です。</p>
+      </div>
+      <div class="card bad">
+        <div class="card-tag">仮説 03</div>
+        <h3>蒸留無しの fine-tune は弱い</h3>
+        <p>研究編で TF 越えを達成したのは蒸留があったから。ChatHBA は教師なしで直接学習しているため、HBA 単体の表現力がそのまま出ます (PPL の絶対値は出るが、構造的学習にならない)。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="04">学び</h2>
+    <ul>
+      <li><strong>数値ベンチマーク (PPL) と実用の品質は別物</strong></li>
+      <li><strong>char-LM 単体で意味的タスクをやるのは無理筋</strong></li>
+      <li><strong>個人研究は「研究」と「実用」の区別を明確にする</strong></li>
+    </ul>
+
+    <div class="story">
+      <h3>ただし HBA 自体が悪いわけではない</h3>
+      <p>HBA は <strong>特化用途で実用性あり</strong>。例えば Speculative decoding のドラフトモデルなど、最終出力が大きい教師モデルから来る前提で、軽量で高速なルーティングを担う役割。</p>
+      <p>BPE/WordPiece トークン化と組み合わせれば、また違う結果になる可能性。研究はここで一区切り、次のフェーズへ。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="05">次の方向</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-tag">PLAN A</div>
+        <h3>日本語対応 HBA</h3>
+        <p>vocab=8000 程度の語彙ベース HBA。char 縛りを外して、まず意味的タスクが解けるか検証する。</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">PLAN B</div>
+        <h3>BPE 噛ませた HBA char-LM</h3>
+        <p>純 char ではなく BPE トークナイザを噛ませて、context あたりの情報量を増やす。HBA の構造はそのまま。</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">PLAN C</div>
+        <h3>Speculative Decoding のドラフトとして評価</h3>
+        <p>HBA の高速性を活かし、大きい教師モデルのドラフトモデルとしての実用性を測る。研究編で示した PPL 4.73 が活きる可能性。</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider-line">
+
+  <section>
+    <p>ここまでの実装と全データは <a href="https://github.com/karumaru-kakikukekodoumei/boolean-attention" target="_blank">GitHub</a> に置いてあります。気が向いたら続編をやります。</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div>
+    <a href="./">Overview</a> ·
+    <a href="theory.html">Theory</a> ·
+    <a href="experiments.html">Experiments</a> ·
+    <a href="chat.html">Chat</a> ·
+    <a href="https://github.com/karumaru-kakikukekodoumei/boolean-attention">GitHub</a> ·
+    <a href="https://www.youtube.com/@かるまる-LAB">YouTube</a>
+  </div>
+  <div style="margin-top: 14px; color: var(--dim);">© 2026 karumaru · MIT License</div>
+</footer>
+
+</body>
+</html>

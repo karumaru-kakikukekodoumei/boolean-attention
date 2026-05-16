@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>理論編 — Boolean Attention</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, { delimiters: [
+    {left: '$$', right: '$$', display: true},
+    {left: '$', right: '$', display: false}
+  ] });"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="./">
+      <div class="brand-logo">01</div>
+      <div><div class="brand-name">かるまるラボ</div></div>
+      <div class="brand-tagline">/ Boolean Attention 2026.05</div>
+    </a>
+    <nav class="site-nav">
+      <a href="./">Overview</a>
+      <a href="theory.html" class="active">Theory</a>
+      <a href="experiments.html">Experiments</a>
+      <a href="chat.html">Chat</a>
+      <a href="https://github.com/karumaru-kakikukekodoumei/boolean-attention" target="_blank">GitHub →</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="hero-chip">// THEORY · DLGN & HBA & DISTILL</div>
+    <h2 class="section-title" data-index="01">なぜ論理ゲートを微分可能にするのか</h2>
+    <p>通常のニューラルネットは隠れ層を <code>y = σ(Wx + b)</code> のような <strong>実数の線形結合 + 非線形活性化</strong> で構築し、誤差逆伝播法で学習します。これは <strong>連続で微分可能</strong> であることが前提です。</p>
+    <p>一方、論理ゲート (AND, OR, XOR, …) は <em>離散関数</em> で、入力をビットに丸めた瞬間に勾配はゼロまたは未定義になります。これでは学習できません。</p>
+    <p>そこで <strong>微分可能化 (differentiable relaxation)</strong> を行います。</p>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="02">DLGN — 16 ゲートを softmax で混ぜる</h2>
+    <p>2 入力ブール関数は全部で $2^{2^2} = 16$ 種類しかありません。DLGN (Differentiable Logic Gate Network) は、各ゲート位置に対して <strong>16 種類のゲートを softmax で混合した結果</strong> を出力します。</p>
+
+    <div class="math-block">
+      <div class="label">// gate-output @ position i</div>
+      $$y_i \;=\; \sum_{k=0}^{15} \alpha_{i,k}\, g_k(a_i, b_i), \qquad \alpha_{i,k} \;=\; \frac{\exp(\theta_{i,k})}{\sum_j \exp(\theta_{i,j})}$$
+    </div>
+
+    <p>ここで $a_i, b_i$ は入力ビット (学習中は $[0,1]$ の実数として扱う)、$g_k$ は 16 種類の論理ゲート関数、$\theta_{i,k}$ は学習対象の logit、$\alpha_{i,k}$ は softmax された混合係数です。学習中は $\alpha$ が連続値なので勾配が流れます。</p>
+
+    <p>学習が終わったら、各位置で <strong>argmax で 1 個のゲートに確定</strong> (hard collapse) し、純粋なブーリアン回路に戻します。</p>
+
+    <h3>16 ゲートの全集合</h3>
+    <pre data-lang="python">GATES = [
+    lambda a, b: 0,                # 0: const False
+    lambda a, b: a * b,            # 1: AND
+    lambda a, b: a * (1 - b),      # 2: A AND NOT B
+    lambda a, b: a,                # 3: A
+    lambda a, b: (1 - a) * b,      # 4: NOT A AND B
+    lambda a, b: b,                # 5: B
+    lambda a, b: a + b - 2*a*b,    # 6: XOR
+    lambda a, b: a + b - a*b,      # 7: OR
+    lambda a, b: 1 - (a + b - a*b),       # 8: NOR
+    lambda a, b: 1 - (a + b - 2*a*b),     # 9: XNOR
+    lambda a, b: 1 - b,            # 10: NOT B
+    lambda a, b: a + (1-b) - a*(1-b),     # 11: A OR NOT B
+    lambda a, b: 1 - a,            # 12: NOT A
+    lambda a, b: (1-a) + b - (1-a)*b,     # 13: NOT A OR B
+    lambda a, b: 1 - a*b,          # 14: NAND
+    lambda a, b: 1,                # 15: const True
+]</pre>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="03">なぜ LoopedDLGN は失敗したか</h2>
+    <p>Universal Transformer に倣い、同じ DLGN ブロックを何度も繰り返す設計を試しました。バナッハの contraction mapping theorem に基づき、反復するうちに $x^{(t+1)} = f(x^{(t)}, \mathrm{input})$ が固定点 $x^{*}$ に収束することを期待しました。</p>
+
+    <p>しかしハードコラプス後、各反復で生じる量子化誤差が爆発的に蓄積します:</p>
+
+    <div class="math-block">
+      <div class="label">// quantization error accumulation</div>
+      $$\epsilon_{\text{total}} \;\gtrsim\; \sum_{t=1}^{T} \,\bigl\| f_{\mathrm{hard}}(x^{(t)}) - f_{\mathrm{soft}}(x^{(t)}) \bigr\|$$
+    </div>
+
+    <p>反復が深くなるほど、ソフト時の学習軌跡からの逸脱が無視できなくなり、Hard PPL が <strong>754</strong> まで暴騰しました。</p>
+
+    <div class="story bad">
+      <h3>教訓</h3>
+      <p>Boolean 量子化誤差は、深さに対して線形以上で増える。反復系アーキテクチャは Boolean とは相性が悪い、というのが学びです。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="04">HBA — Boolean を「どこに使うか」を再考</h2>
+    <p>Transformer の Attention は、抽象的に次の 2 ステップに分解できます:</p>
+    <ol>
+      <li><strong>ルーティング</strong>: クエリ $Q$ とキー $K$ から、どの位置を見るかを決める (softmax 注意重み)</li>
+      <li><strong>値の集約</strong>: 注意重みでバリュー $V$ を加重平均</li>
+    </ol>
+
+    <p>HBA は、この <strong>(1) ルーターだけを Boolean 化</strong> し、(2) は float のままにします。</p>
+
+    <div class="math-block">
+      <div class="label">// HBA forward</div>
+      $$\text{router}_{q,k} \;=\; \mathrm{HardSign}\bigl(\, Q_q^\top W_{\mathrm{router}} K_k \,\bigr) \in \{-1, +1\}$$
+      $$\text{attn}_{q,k} \;=\; \mathrm{softmax}_k\!\left( \frac{\text{router}_{q,k}}{\tau} \right)$$
+      $$\text{out}_q \;=\; \sum_k\, \text{attn}_{q,k}\, V_k$$
+    </div>
+
+    <p>ポイント:</p>
+    <ul>
+      <li><code>bilinear(Q, K) = Q · W_router · K^T</code> で Q,K の相互作用を取る (spectral norm 制約付きでリプシッツ性を確保)</li>
+      <li>$\mathrm{HardSign}$ は学習時 $\tanh$、推論時 $\mathrm{sgn}$ (straight-through estimator)</li>
+      <li>$\tau$ は分布のエントロピーを保つための温度 (HBA v2 で <code>warm_hold</code> パターン)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="05">なぜ HBA は誤差累積しないか</h2>
+    <p>ルーターは離散値ですが、<strong>値の集約は float</strong> なので量子化誤差が伝播しません。具体的には、ルーターの誤差は <code>attn</code> を通じて 1 ステップ分しか影響せず、深さ方向に累積しないという構造的優位があります。</p>
+
+    <div class="story good">
+      <h3>構造的利点</h3>
+      <p>これが HBA のハードコラプス後 PPL 6.54 (vs LoopedDLGN の 754) の <strong>115 倍の改善</strong> をもたらした本質的な理由です。「Boolean をどこに入れるか」の設計判断が、すべてを決めました。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="06">知識蒸留で Transformer を超える</h2>
+    <p>教師 (Transformer) の出力分布 $p_T(y|x)$ を、生徒 (HBA) の出力分布 $p_S(y|x)$ に温度 $T$ のソフトラベルで模倣させます:</p>
+
+    <div class="math-block">
+      <div class="label">// distillation loss</div>
+      $$\mathcal{L} \;=\; \alpha \cdot \mathrm{CE}(p_S, y_{\text{true}}) \;+\; (1-\alpha) \cdot T^2 \cdot \mathrm{KL}\!\bigl(\, \sigma(z_T/T) \,\big\|\, \sigma(z_S/T) \,\bigr)$$
+    </div>
+
+    <p>ここで $\alpha = 0.3$, $T = 8$, $z_T, z_S$ は教師・生徒の logits、$\sigma$ は softmax です。</p>
+
+    <p>重要なのは、教師は学習データで <em>限られた汎化</em> をしているが、蒸留時の生徒は教師のソフトな出力分布を受け取るため、実質的にデータオーグメンテーションを受けたかのように学習することです。これが <strong>生徒が教師を逆転する</strong> 現象 (born-again networks) の本質で、HBA Student が PPL <strong>4.73</strong> を達成、教師 4.86 を 0.13 上回ったのもこの効果です。</p>
+  </section>
+
+  <hr class="divider-line">
+
+  <section>
+    <h2 class="section-title" data-index="07">参考文献</h2>
+    <ul>
+      <li>Petersen et al. (2022) "Deep Differentiable Logic Gate Networks"</li>
+      <li>Dehghani et al. (2018) "Universal Transformers"</li>
+      <li>Hinton et al. (2015) "Distilling the Knowledge in a Neural Network"</li>
+      <li>Furlanello et al. (2018) "Born Again Neural Networks"</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div>
+    <a href="./">Overview</a> ·
+    <a href="theory.html">Theory</a> ·
+    <a href="experiments.html">Experiments</a> ·
+    <a href="chat.html">Chat</a> ·
+    <a href="https://github.com/karumaru-kakikukekodoumei/boolean-attention">GitHub</a> ·
+    <a href="https://www.youtube.com/@かるまる-LAB">YouTube</a>
+  </div>
+  <div style="margin-top: 14px; color: var(--dim);">© 2026 karumaru · MIT License</div>
+</footer>
+
+</body>
+</html>

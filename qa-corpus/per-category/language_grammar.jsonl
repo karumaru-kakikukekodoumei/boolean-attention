@@ -1,0 +1,80 @@
+{"category": "language_grammar", "q": "What is a noun?", "a": "A person, place, or thing."}
+{"category": "language_grammar", "q": "What is a verb?", "a": "A word for an action."}
+{"category": "language_grammar", "q": "What is an adjective?", "a": "A word that describes a noun."}
+{"category": "language_grammar", "q": "What is an adverb?", "a": "A word that describes a verb."}
+{"category": "language_grammar", "q": "What is a pronoun?", "a": "A word that stands for a noun."}
+{"category": "language_grammar", "q": "What is a preposition?", "a": "A word like in, on, at."}
+{"category": "language_grammar", "q": "What is a conjunction?", "a": "A word like and, but, or."}
+{"category": "language_grammar", "q": "What is an article?", "a": "A word like a, an, the."}
+{"category": "language_grammar", "q": "What is a sentence?", "a": "A group of words with meaning."}
+{"category": "language_grammar", "q": "What is a paragraph?", "a": "A group of related sentences."}
+{"category": "language_grammar", "q": "What is punctuation?", "a": "Marks like periods and commas."}
+{"category": "language_grammar", "q": "What is a comma?", "a": "A pause mark: ,"}
+{"category": "language_grammar", "q": "What is a period?", "a": "An end mark for sentences: ."}
+{"category": "language_grammar", "q": "What is a question mark?", "a": "End mark for questions: ?"}
+{"category": "language_grammar", "q": "What is an apostrophe?", "a": "Mark for possession: '"}
+{"category": "language_grammar", "q": "What is a colon?", "a": "Two dots that introduce: :"}
+{"category": "language_grammar", "q": "What is a semicolon?", "a": "Used to link clauses: ;"}
+{"category": "language_grammar", "q": "What is a subject?", "a": "What the sentence is about."}
+{"category": "language_grammar", "q": "What is a predicate?", "a": "What the subject does."}
+{"category": "language_grammar", "q": "What is an object?", "a": "What receives the action."}
+{"category": "language_grammar", "q": "What is a clause?", "a": "A group of words with a verb."}
+{"category": "language_grammar", "q": "What is a phrase?", "a": "A group of words, no verb."}
+{"category": "language_grammar", "q": "What is a synonym?", "a": "A word with the same meaning."}
+{"category": "language_grammar", "q": "What is an antonym?", "a": "A word with the opposite meaning."}
+{"category": "language_grammar", "q": "What is a homonym?", "a": "A word with multiple meanings."}
+{"category": "language_grammar", "q": "What is a homophone?", "a": "A word sounding like another."}
+{"category": "language_grammar", "q": "Give an example of a noun.", "a": "Dog, city, book are nouns."}
+{"category": "language_grammar", "q": "Give an example of a verb.", "a": "Run, eat, sleep are verbs."}
+{"category": "language_grammar", "q": "Give an example of an adjective.", "a": "Red, tall, quick."}
+{"category": "language_grammar", "q": "Give an example of an adverb.", "a": "Quickly, well, often."}
+{"category": "language_grammar", "q": "What is plural?", "a": "More than one of something."}
+{"category": "language_grammar", "q": "What is singular?", "a": "Just one of something."}
+{"category": "language_grammar", "q": "What is past tense?", "a": "Action that already happened."}
+{"category": "language_grammar", "q": "What is present tense?", "a": "Action happening now."}
+{"category": "language_grammar", "q": "What is future tense?", "a": "Action that will happen."}
+{"category": "language_grammar", "q": "What is a vowel?", "a": "A, E, I, O, U sounds."}
+{"category": "language_grammar", "q": "What is a consonant?", "a": "Letters not vowels."}
+{"category": "language_grammar", "q": "How many letters in the alphabet?", "a": "26 letters."}
+{"category": "language_grammar", "q": "How many vowels?", "a": "Five main vowels."}
+{"category": "language_grammar", "q": "What is a syllable?", "a": "A unit of pronunciation."}
+{"category": "language_grammar", "q": "Grammar: what is a noun?", "a": "A person, place, or thing."}
+{"category": "language_grammar", "q": "Grammar: what is a verb?", "a": "A word for an action."}
+{"category": "language_grammar", "q": "Grammar: what is an adjective?", "a": "A word that describes a noun."}
+{"category": "language_grammar", "q": "Grammar: what is an adverb?", "a": "A word that describes a verb."}
+{"category": "language_grammar", "q": "Grammar: what is a pronoun?", "a": "A word that stands for a noun."}
+{"category": "language_grammar", "q": "Grammar: what is a preposition?", "a": "A word like in, on, at."}
+{"category": "language_grammar", "q": "Grammar: what is a conjunction?", "a": "A word like and, but, or."}
+{"category": "language_grammar", "q": "Grammar: what is an article?", "a": "A word like a, an, the."}
+{"category": "language_grammar", "q": "Grammar: what is a sentence?", "a": "A group of words with meaning."}
+{"category": "language_grammar", "q": "Grammar: what is a paragraph?", "a": "A group of related sentences."}
+{"category": "language_grammar", "q": "Grammar: what is punctuation?", "a": "Marks like periods and commas."}
+{"category": "language_grammar", "q": "Grammar: what is a comma?", "a": "A pause mark: ,"}
+{"category": "language_grammar", "q": "Grammar: what is a period?", "a": "An end mark for sentences: ."}
+{"category": "language_grammar", "q": "Grammar: what is a question mark?", "a": "End mark for questions: ?"}
+{"category": "language_grammar", "q": "Grammar: what is an apostrophe?", "a": "Mark for possession: '"}
+{"category": "language_grammar", "q": "Grammar: what is a colon?", "a": "Two dots that introduce: :"}
+{"category": "language_grammar", "q": "Grammar: what is a semicolon?", "a": "Used to link clauses: ;"}
+{"category": "language_grammar", "q": "Grammar: what is a subject?", "a": "What the sentence is about."}
+{"category": "language_grammar", "q": "Grammar: what is a predicate?", "a": "What the subject does."}
+{"category": "language_grammar", "q": "Grammar: what is an object?", "a": "What receives the action."}
+{"category": "language_grammar", "q": "Grammar: what is a clause?", "a": "A group of words with a verb."}
+{"category": "language_grammar", "q": "Grammar: what is a phrase?", "a": "A group of words, no verb."}
+{"category": "language_grammar", "q": "Grammar: what is a synonym?", "a": "A word with the same meaning."}
+{"category": "language_grammar", "q": "Grammar: what is an antonym?", "a": "A word with the opposite meaning."}
+{"category": "language_grammar", "q": "Grammar: what is a homonym?", "a": "A word with multiple meanings."}
+{"category": "language_grammar", "q": "Grammar: what is a homophone?", "a": "A word sounding like another."}
+{"category": "language_grammar", "q": "Grammar: give an example of a noun.", "a": "Dog, city, book are nouns."}
+{"category": "language_grammar", "q": "Grammar: give an example of a verb.", "a": "Run, eat, sleep are verbs."}
+{"category": "language_grammar", "q": "Grammar: give an example of an adjective.", "a": "Red, tall, quick."}
+{"category": "language_grammar", "q": "Grammar: give an example of an adverb.", "a": "Quickly, well, often."}
+{"category": "language_grammar", "q": "Grammar: what is plural?", "a": "More than one of something."}
+{"category": "language_grammar", "q": "Grammar: what is singular?", "a": "Just one of something."}
+{"category": "language_grammar", "q": "Grammar: what is past tense?", "a": "Action that already happened."}
+{"category": "language_grammar", "q": "Grammar: what is present tense?", "a": "Action happening now."}
+{"category": "language_grammar", "q": "Grammar: what is future tense?", "a": "Action that will happen."}
+{"category": "language_grammar", "q": "Grammar: what is a vowel?", "a": "A, E, I, O, U sounds."}
+{"category": "language_grammar", "q": "Grammar: what is a consonant?", "a": "Letters not vowels."}
+{"category": "language_grammar", "q": "Grammar: how many letters in the alphabet?", "a": "26 letters."}
+{"category": "language_grammar", "q": "Grammar: how many vowels?", "a": "Five main vowels."}
+{"category": "language_grammar", "q": "Grammar: what is a syllable?", "a": "A unit of pronunciation."}

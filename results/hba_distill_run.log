@@ -1,0 +1,187 @@
+﻿========================================================================
+  HBA Distillation Char-LM
+  Teacher: TinyTransformerLM -> Student: HBALanguageModel
+  Device: CPU  PyTorch 2.7.0+cpu
+========================================================================
+[CLI] epochs_teacher: 40
+[CLI] epochs_student: 60
+[CLI] patience: 3
+[CLI] distill_temp: 4.0
+[CLI] distill_alpha: 0.5
+[CLI] n_layers: 3
+[CLI] hidden_dim: 96
+[CLI] n_heads: 8
+[CLI] lambda_ent: 0.01
+[CLI] warm_hold: 0.5
+[data] cache hit: 1,115,394 chars
+
+[vocab] size=61  text_len=80,000
+[data] train=71,984  val=7,984  context_len=16
+
+========================================================================
+  [Stage 1] Teacher (TinyTransformerLM) training
+  epochs=40  batch=256  lr=0.003
+========================================================================
+C:\Users\sioga\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\transformer.py:382: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[Teacher] params: 108,861  (d_model=64, n_heads=2, n_layers=2)
+
+  Ep  TrainLoss  ValPPL  Best?
+  -----------------------------------
+  4  1.8589  6.0457 *
+  8  1.7403  5.5901 *
+  12  1.6758  5.3049 *
+  16  1.6235  5.1254 *
+  20  1.5764  5.0934 *
+  24  1.5345  4.9594 *
+  28  1.4985  4.9200 *
+  32  1.4711  4.8809 *
+  36  1.4458  4.8572 *
+  40  1.4390  4.8600
+
+  [teacher best] restored ep36  PPL=4.8572
+
+  Teacher training time: 748.2s (12.5min)
+  Teacher PPL: 4.8572  (best ep36)
+
+========================================================================
+  [Stage 2] Student (HBALanguageModel) distillation
+  epochs=60  patience=3  lr=0.003
+  distill_T=4.0  distill_alpha=0.5
+  lambda_ent=0.01  warm_hold=0.5
+  Student arch: hidden_dim=96  n_layers=3  n_heads=8  (HBA v2 仕様)
+========================================================================
+[Student] params: 296,269
+
+  Ep  tau  DistLoss  EntReg  TotLoss  ValPPL  AvgMaskH  Best?
+  ----------------------------------------------------------------------------
+  2  1.000  2.0762  -1.7420  0.3342  6.9750 174.305786 *
+  4  1.000  1.2014  -1.7431  -0.5417  5.5333 174.894531 *
+  6  1.000  1.0187  -1.7458  -0.7271  5.2013 175.149918 *
+  8  1.000  0.9388  -1.7475  -0.8087  4.9851 175.239502 *
+  10  1.000  0.8877  -1.7487  -0.8611  4.9441 175.374344 *
+  12  1.000  0.8565  -1.7494  -0.8929  4.8425 175.511063 *
+  14  1.000  0.8287  -1.7503  -0.9217  4.7892 175.515930 *
+  16  1.000  0.8048  -1.7509  -0.9461  4.7816 175.591995 *
+  18  1.000  0.7833  -1.7514  -0.9681  4.7345 175.666824 *
+  20  1.000  0.7658  -1.7519  -0.9861  4.7108 175.674683 *
+  22  1.000  0.7471  -1.7523  -1.0052  4.7257 175.706177
+  24  1.000  0.7284  -1.7527  -1.0243  4.7375 175.787842
+  26  1.000  0.7128  -1.7530  -1.0402  4.7474 175.808838
+
+  [early stop] no improvement for 3 log-epochs (best=4.7108 @ ep20). Stopping.
+
+  [student best] restored ep20  PPL=4.7108
+
+  Student training time: 570.1s (9.5min)
+
+[Router Stats]
+  Final mask entropy (student best): 164.970963
+  OK: ルーター entropy は健全範囲
+
+[calibrate] Hard threshold calibration on val set:
+  Threshold  Hard PPL
+  ----------------------
+  -0.50  6.8104
+  -0.30  7.9386
+  -0.10  9.1016
+  0.00  11.3065
+  0.10  15.0016
+  0.30  17.7615
+  0.50  18.2041
+  -> Best threshold: -0.50  Hard PPL: 6.8104
+  [calibrate] Adopted threshold: -0.50  Hard PPL: 6.8104
+
+[collapse] Student -> HardHBA (threshold=-0.50)...
+
+========================================================================
+  Generated text: Student (HBA distilled) soft - greedy
+========================================================================
+  ['First '] -> 'First Comions, air lied air consurees air consurees air consurees '
+  ['To be '] -> 'To be toes air conter air conter air conter air conter air conter '
+  ['The ki'] -> 'The kile toes onderch aid in onderce took air conter air conter ai'
+
+========================================================================
+  Generated text: Student (HBA distilled) soft - sampled (temp=0.8)
+========================================================================
+  ['First '] -> 'First Or carrectirs, will eask upiad, thich youb. Wh mentle pratte'
+  ['To be '] -> "To be thing aart, why, youseet your lies alers.\n\nMARCIUS:\n'VIRGILg"
+  ['The ki'] -> 'The kief yould east reat aed youndresce youbs took oftemts hork:s '
+
+========================================================================
+  Generated text: Student Hard (threshold=-0.50)
+========================================================================
+  ['First '] -> 'First Corioli,ien, were stone, you rueder sames.\n\nCORIOLANUS:\nCiIN'
+  ['To be '] -> 'To be ton arth,\nAntors tireads anten there. For my lome war the ma'
+  ['The ki'] -> 'The kies the weston metwen adies pothe tor iignances well attent t'
+
+========================================================================
+  Generated text: Teacher (TF) - sampled (temp=0.8)
+========================================================================
+  ['First '] -> 'First in you\nMarcius, they are again hour good so\ngives hand curse'
+  ['To be '] -> 'To be you have that set the stood be be consul:\nDid will counted h'
+  ['The ki'] -> "The kind might\nHave the leave the prait, the common'd city presens"
+
+========================================================================
+  HBA v2 vs HBA distilled vs Transformer (Teacher) - 比較表
+========================================================================
+  Model  Params  TeacherPPL  StudentSoftPPL  StudentHardPPL  Speed(tok/s)
+  -------------------------------------------------------------------------------------------------------
+  Teacher (TF)  108,861  4.8572  -  -  61,954
+  HBA distilled (soft/best)  296,269  -  8.7181  -  11,042
+  HBA distilled (hard/calib thresh=-0.50)  296,269  -  -  6.8104  12,692
+  HBA v2 [前回]  296,000  -  5.3200  6.5400  -
+  Transformer [前回参考]  108,861  4.8600  -  -  51,291
+
+========================================================================
+  Perplexity curve (Student distillation)
+========================================================================
+  Epoch  ValPPL  Note
+  ----------------------------
+  2  6.9750
+  4  5.5333
+  6  5.2013
+  8  4.9851
+  10  4.9441
+  12  4.8425
+  14  4.7892
+  16  4.7816
+  18  4.7345
+  20  4.7108 <- BEST
+  22  4.7257
+  24  4.7375
+  26  4.7474
+
+========================================================================
+  分析
+========================================================================
+  判定: 蒸留効果が出ていない  T/alpha チューニングが必要
+
+  Teacher PPL (best restored):  4.8572
+  Student soft PPL (best restored):  8.7181
+  Student hard PPL (thresh=-0.50):  6.8104
+
+  HBA v2 soft PPL [前回]:  5.3200
+  HBA v2 hard PPL [前回]:  6.5400
+  TF (Teacher) PPL [前回参考]:  4.8600
+
+  Teacher best epoch: 36
+  Student best epoch: 20  (patience=3)
+  Final mask entropy: 164.970963  (collapse なし)
+  Adopted hard threshold: -0.50
+
+  Teacher train time: 748.2s (12.5min)
+  Student train time: 570.1s (9.5min)
+  Total time:  1318.3s (22.0min)
+
+  Student soft speed:  11,042 tok/s
+  Student hard speed:  12,692 tok/s  (1.15x soft)
+  Teacher speed:  61,954 tok/s
+
+  [蒸留パラメータ]
+  - distill_T=4.0  distill_alpha=0.5
+  - lambda_ent=0.01  warm_hold=0.5
+  - entropy 正則化: 適用済み
+  - gradient clip: max_norm=1.0
+  - best checkpoint: 保存 + restore 済 (ep20)
+

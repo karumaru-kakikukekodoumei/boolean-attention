@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="論理ゲートだけで言語モデルを作って Transformer を超えた個人研究の記録 (PPL 4.73 vs 4.86)">
+<meta property="og:title" content="Boolean Attention — 論理ゲートで Transformer を超える">
+<meta property="og:description" content="GPU を使わず、論理ゲートだけで言語モデルを作ったら Transformer を超えた。DLGN + HBA + 知識蒸留の研究記録。">
+<meta property="og:type" content="article">
+<title>Boolean Attention — かるまるラボ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="./">
+      <div class="brand-logo">01</div>
+      <div>
+        <div class="brand-name">かるまるラボ</div>
+      </div>
+      <div class="brand-tagline">/ Boolean Attention 2026.05</div>
+    </a>
+    <nav class="site-nav">
+      <a href="./" class="active">Overview</a>
+      <a href="theory.html">Theory</a>
+      <a href="experiments.html">Experiments</a>
+      <a href="chat.html">Chat</a>
+      <a href="https://github.com/karumaru-kakikukekodoumei/boolean-attention" target="_blank">GitHub →</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero fade-in">
+    <div class="hero-chip">RESEARCH RECORD · 2026.05</div>
+    <h1>論理ゲートだけで<br>Transformer を超えてみた</h1>
+    <p class="hero-sub">
+      GPU を一切使わず、AND・OR・XOR などの論理ゲートだけで言語モデルを作る。<br>
+      失敗 3 回、設計の根本見直し、そして知識蒸留で逆転。<br>
+      char-level TinyShakespeare 80KB での実証記録。
+    </p>
+
+    <div class="hero-result">
+      <div class="hero-result-cell loser">
+        <div class="hero-result-label">TRANSFORMER · BASELINE</div>
+        <div class="hero-result-value">4.86</div>
+      </div>
+      <div class="hero-result-cell divider">vs</div>
+      <div class="hero-result-cell winner">
+        <div class="hero-result-label">BOOLEAN HBA · DISTILLED</div>
+        <div class="hero-result-value">4.73</div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="theory.html">理論編を読む →</a>
+      <a class="btn btn-ghost" href="https://github.com/karumaru-kakikukekodoumei/boolean-attention" target="_blank">GitHub で見る</a>
+    </div>
+
+    <div class="gates-visual" aria-hidden="true">
+      <div class="gate-cell">AND</div>
+      <div class="gate-cell">OR</div>
+      <div class="gate-cell">XOR</div>
+      <div class="gate-cell">NAND</div>
+      <div class="gate-cell">NOR</div>
+      <div class="gate-cell">XNOR</div>
+      <div class="gate-cell">¬A</div>
+      <div class="gate-cell">¬B</div>
+      <div class="gate-cell">A</div>
+      <div class="gate-cell">B</div>
+      <div class="gate-cell">T</div>
+      <div class="gate-cell">F</div>
+      <div class="gate-cell">IMP</div>
+      <div class="gate-cell">A∧¬B</div>
+      <div class="gate-cell">¬A∧B</div>
+      <div class="gate-cell">A∨¬B</div>
+    </div>
+  </section>
+
+  <hr class="divider-line">
+
+  <section id="story">
+    <h2 class="section-title" data-index="// 01">研究の全工程、3 分で</h2>
+    <p class="section-lead">失敗を繰り返しながら、論理回路だけで Transformer を超えるまでの道筋。</p>
+
+    <div class="cards">
+      <div class="card amber">
+        <div class="card-tag">QUESTION</div>
+        <h3>そもそも float って必要？</h3>
+        <p>AI は GPU 並列の <code>float</code> 積和に依存する。論理ゲートだけで作れたら、CPU で爆速、消費電力激減、組み込みでも巨大 LM が動く。</p>
+      </div>
+
+      <div class="card">
+        <div class="card-tag">FOUNDATION</div>
+        <h3>DLGN で勾配を流す</h3>
+        <p>論理ゲートは離散関数で勾配が流れない。16 種類のゲートを <strong>softmax で混合</strong> し勾配を流す。学習後は argmax で純 Boolean に確定。</p>
+      </div>
+
+      <div class="card bad">
+        <div class="card-tag">FAILURE 01</div>
+        <h3>DLGN flat は届かなかった</h3>
+        <p>素直に 4 段積んで TinyShakespeare 学習 → 論理回路で言語学習は <em>成功</em>。だが Transformer には届かず。</p>
+        <div class="card-value"><strong>11.83</strong><span>SOFT PPL · TF=4.86</span></div>
+      </div>
+
+      <div class="card bad">
+        <div class="card-tag">FAILURE 02</div>
+        <h3>LoopedDLGN で散る</h3>
+        <p>Universal Transformer × Boolean。バナッハの不動点定理で美しい設計のはずが、量子化誤差が反復で <em>爆発</em>。</p>
+        <div class="card-value"><strong>754.31</strong><span>HARD PPL · 構造的に詰む</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-tag">BREAKTHROUGH</div>
+        <h3>HBA で発想を変える</h3>
+        <p>Attention を <strong>ルーター</strong> と <strong>値の集約</strong> に分解。ルーターだけ Boolean、値は float のまま。誤差が深さ方向に伝播しない。</p>
+        <div class="card-value"><strong>5.32</strong><span>SOFT PPL · HBA v2</span></div>
+      </div>
+
+      <div class="card violet">
+        <div class="card-tag">CHECKMATE</div>
+        <h3>知識蒸留で逆転</h3>
+        <p>教師 Transformer → 生徒 HBA に蒸留。Born-again 効果で、論理回路の生徒が教師を <strong>0.13 上回る</strong>。</p>
+        <div class="card-value"><strong>4.73</strong><span>SOFT PPL · TF を逆転</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="result-table">
+    <h2 class="section-title" data-index="// 02">結果一覧</h2>
+    <p class="section-lead">TinyShakespeare 80KB / char-level / vocab=61 / 計算機 RTX 4060.</p>
+
+    <table class="result-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th class="num">Soft PPL</th>
+          <th class="num">Hard PPL</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Transformer (baseline)</td>
+          <td class="num">—</td>
+          <td class="num">4.86</td>
+          <td>比較対象</td>
+        </tr>
+        <tr>
+          <td>DLGN flat</td>
+          <td class="num">11.83</td>
+          <td class="num">15.16</td>
+          <td>純 Boolean で言語学習に成功</td>
+        </tr>
+        <tr class="bad">
+          <td>LoopedDLGN v1</td>
+          <td class="num">11.05</td>
+          <td class="num">754.31</td>
+          <td>量子化誤差が反復で爆発</td>
+        </tr>
+        <tr>
+          <td>HBA v1</td>
+          <td class="num">5.40 → 9.75</td>
+          <td class="num">—</td>
+          <td>TF まで 0.54 差、後半過学習</td>
+        </tr>
+        <tr class="win">
+          <td>HBA v2 (stable)</td>
+          <td class="num">5.32</td>
+          <td class="num">6.54</td>
+          <td>Best ckpt + Early stop + Hard 校正</td>
+        </tr>
+        <tr class="highlight">
+          <td>HBA Distilled (Student)</td>
+          <td class="num">4.73</td>
+          <td class="num">6.31</td>
+          <td>Transformer を 0.13 上回る</td>
+        </tr>
+        <tr class="bad">
+          <td>ChatHBA</td>
+          <td class="num">6.46</td>
+          <td class="num">—</td>
+          <td>数値は出るが会話崩壊</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="more">
+    <h2 class="section-title" data-index="// 03">続きを読む</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-tag">THEORY</div>
+        <h3><a href="theory.html">理論編 — 数式と設計</a></h3>
+        <p>DLGN の微分可能化、HBA の数学的構造、蒸留損失の組み立て方。実装に直結する式まで踏み込んで解説。</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">EXPERIMENT</div>
+        <h3><a href="experiments.html">実験編 — 全ログと考察</a></h3>
+        <p>4 つの実験と 3 つの失敗、最終的な逆転までの全データ。学習曲線、ハマったポイント、温度整合性のバグ修正まで。</p>
+      </div>
+      <div class="card bad">
+        <div class="card-tag">CHAT</div>
+        <h3><a href="chat.html">チャット編 — ChatHBA 崩壊記</a></h3>
+        <p>研究での成功に味を占めて会話モデルに挑戦 → 完全崩壊。PPL は良いのに会話は崩れる現象の構造的理由。</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider-line">
+
+  <section id="cta">
+    <h2 class="section-title" data-index="// 04">関連リンク</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-tag">GITHUB</div>
+        <h3><a href="https://github.com/karumaru-kakikukekodoumei/boolean-attention" target="_blank">ソースコード + 実験ログ</a></h3>
+        <p>本研究の全実装と、学習済みモデル、生成 Q&A コーパス、実験ログを公開。MIT ライセンス。</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">YOUTUBE</div>
+        <h3><a href="https://www.youtube.com/@かるまる-LAB" target="_blank">かるまるラボ チャンネル</a></h3>
+        <p>本研究を約 5 分にまとめた解説動画。ナレーション: ずんだもん / 編集: FrameScript (自作の動画エディタ)。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div>
+    <a href="./">Overview</a> ·
+    <a href="theory.html">Theory</a> ·
+    <a href="experiments.html">Experiments</a> ·
+    <a href="chat.html">Chat</a> ·
+    <a href="https://github.com/karumaru-kakikukekodoumei/boolean-attention">GitHub</a> ·
+    <a href="https://www.youtube.com/@かるまる-LAB">YouTube</a>
+  </div>
+  <div style="margin-top: 14px; color: var(--dim);">
+    © 2026 karumaru · MIT License · made with <span style="color: var(--red);">♥</span> and Boolean gates
+  </div>
+</footer>
+
+</body>
+</html>

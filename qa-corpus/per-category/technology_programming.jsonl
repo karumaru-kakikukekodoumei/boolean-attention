@@ -1,0 +1,100 @@
+{"category": "technology_programming", "q": "What is a variable?", "a": "A named storage for a value."}
+{"category": "technology_programming", "q": "What is a loop?", "a": "Code that repeats a block."}
+{"category": "technology_programming", "q": "What is a function?", "a": "A reusable block of code."}
+{"category": "technology_programming", "q": "What is a class?", "a": "A template for objects."}
+{"category": "technology_programming", "q": "What is an object?", "a": "An instance of a class."}
+{"category": "technology_programming", "q": "What is an array?", "a": "An ordered list of values."}
+{"category": "technology_programming", "q": "What is a string?", "a": "A sequence of characters."}
+{"category": "technology_programming", "q": "What is an integer?", "a": "A whole number."}
+{"category": "technology_programming", "q": "What is a float?", "a": "A decimal number."}
+{"category": "technology_programming", "q": "What is a boolean?", "a": "True or false value."}
+{"category": "technology_programming", "q": "What is a list in Python?", "a": "An ordered mutable array."}
+{"category": "technology_programming", "q": "What is a tuple?", "a": "An immutable ordered list."}
+{"category": "technology_programming", "q": "What is a dictionary?", "a": "Key to value mapping."}
+{"category": "technology_programming", "q": "What is a set?", "a": "Collection of unique items."}
+{"category": "technology_programming", "q": "What is recursion?", "a": "A function calling itself."}
+{"category": "technology_programming", "q": "What is a bug?", "a": "An error in the code."}
+{"category": "technology_programming", "q": "What is debugging?", "a": "Finding and fixing bugs."}
+{"category": "technology_programming", "q": "What is a compiler?", "a": "Tool to translate code."}
+{"category": "technology_programming", "q": "What is an interpreter?", "a": "Tool to run code directly."}
+{"category": "technology_programming", "q": "What is a syntax error?", "a": "Wrong grammar in code."}
+{"category": "technology_programming", "q": "What is a runtime error?", "a": "An error while running."}
+{"category": "technology_programming", "q": "What is IDE?", "a": "Integrated dev environment."}
+{"category": "technology_programming", "q": "What is VS Code?", "a": "A popular code editor."}
+{"category": "technology_programming", "q": "What is Python used for?", "a": "Scripts, AI, web, more."}
+{"category": "technology_programming", "q": "What is C used for?", "a": "Systems and embedded code."}
+{"category": "technology_programming", "q": "What is HTML used for?", "a": "Structuring web pages."}
+{"category": "technology_programming", "q": "What is CSS used for?", "a": "Styling web pages."}
+{"category": "technology_programming", "q": "What is JavaScript used for?", "a": "Logic in web pages."}
+{"category": "technology_programming", "q": "What is an API?", "a": "Application programming interface."}
+{"category": "technology_programming", "q": "What is JSON?", "a": "Text format for data."}
+{"category": "technology_programming", "q": "What is XML?", "a": "Markup format like HTML."}
+{"category": "technology_programming", "q": "What is a server-side language?", "a": "Code run on the server."}
+{"category": "technology_programming", "q": "What is a client-side language?", "a": "Code run in the browser."}
+{"category": "technology_programming", "q": "What is Node.js?", "a": "JavaScript run outside browser."}
+{"category": "technology_programming", "q": "What is React?", "a": "JS library by Facebook."}
+{"category": "technology_programming", "q": "What is Vue?", "a": "JS framework, simple style."}
+{"category": "technology_programming", "q": "What is Django?", "a": "Python web framework."}
+{"category": "technology_programming", "q": "What is Flask?", "a": "Lightweight Python web tool."}
+{"category": "technology_programming", "q": "What is FastAPI?", "a": "Modern Python web tool."}
+{"category": "technology_programming", "q": "What is a framework?", "a": "A reusable code platform."}
+{"category": "technology_programming", "q": "What is a library?", "a": "Reusable code you import."}
+{"category": "technology_programming", "q": "What is open source?", "a": "Code anyone can read."}
+{"category": "technology_programming", "q": "What is unit test?", "a": "A test for small code parts."}
+{"category": "technology_programming", "q": "What is integration test?", "a": "Test of parts together."}
+{"category": "technology_programming", "q": "What is version control?", "a": "Tracking code changes."}
+{"category": "technology_programming", "q": "What is Git?", "a": "Common version control tool."}
+{"category": "technology_programming", "q": "What is GitHub?", "a": "Cloud Git host."}
+{"category": "technology_programming", "q": "What is a branch?", "a": "A line of code work."}
+{"category": "technology_programming", "q": "What is merge?", "a": "Combine two branches."}
+{"category": "technology_programming", "q": "What is a commit?", "a": "A saved change in Git."}
+{"category": "technology_programming", "q": "Code: what is a variable?", "a": "A named storage for a value."}
+{"category": "technology_programming", "q": "Code: what is a loop?", "a": "Code that repeats a block."}
+{"category": "technology_programming", "q": "Code: what is a function?", "a": "A reusable block of code."}
+{"category": "technology_programming", "q": "Code: what is a class?", "a": "A template for objects."}
+{"category": "technology_programming", "q": "Code: what is an object?", "a": "An instance of a class."}
+{"category": "technology_programming", "q": "Code: what is an array?", "a": "An ordered list of values."}
+{"category": "technology_programming", "q": "Code: what is a string?", "a": "A sequence of characters."}
+{"category": "technology_programming", "q": "Code: what is an integer?", "a": "A whole number."}
+{"category": "technology_programming", "q": "Code: what is a float?", "a": "A decimal number."}
+{"category": "technology_programming", "q": "Code: what is a boolean?", "a": "True or false value."}
+{"category": "technology_programming", "q": "Code: what is a list in python?", "a": "An ordered mutable array."}
+{"category": "technology_programming", "q": "Code: what is a tuple?", "a": "An immutable ordered list."}
+{"category": "technology_programming", "q": "Code: what is a dictionary?", "a": "Key to value mapping."}
+{"category": "technology_programming", "q": "Code: what is a set?", "a": "Collection of unique items."}
+{"category": "technology_programming", "q": "Code: what is recursion?", "a": "A function calling itself."}
+{"category": "technology_programming", "q": "Code: what is a bug?", "a": "An error in the code."}
+{"category": "technology_programming", "q": "Code: what is debugging?", "a": "Finding and fixing bugs."}
+{"category": "technology_programming", "q": "Code: what is a compiler?", "a": "Tool to translate code."}
+{"category": "technology_programming", "q": "Code: what is an interpreter?", "a": "Tool to run code directly."}
+{"category": "technology_programming", "q": "Code: what is a syntax error?", "a": "Wrong grammar in code."}
+{"category": "technology_programming", "q": "Code: what is a runtime error?", "a": "An error while running."}
+{"category": "technology_programming", "q": "Code: what is ide?", "a": "Integrated dev environment."}
+{"category": "technology_programming", "q": "Code: what is vs code?", "a": "A popular code editor."}
+{"category": "technology_programming", "q": "Code: what is python used for?", "a": "Scripts, AI, web, more."}
+{"category": "technology_programming", "q": "Code: what is c used for?", "a": "Systems and embedded code."}
+{"category": "technology_programming", "q": "Code: what is html used for?", "a": "Structuring web pages."}
+{"category": "technology_programming", "q": "Code: what is css used for?", "a": "Styling web pages."}
+{"category": "technology_programming", "q": "Code: what is javascript used for?", "a": "Logic in web pages."}
+{"category": "technology_programming", "q": "Code: what is an api?", "a": "Application programming interface."}
+{"category": "technology_programming", "q": "Code: what is json?", "a": "Text format for data."}
+{"category": "technology_programming", "q": "Code: what is xml?", "a": "Markup format like HTML."}
+{"category": "technology_programming", "q": "Code: what is a server-side language?", "a": "Code run on the server."}
+{"category": "technology_programming", "q": "Code: what is a client-side language?", "a": "Code run in the browser."}
+{"category": "technology_programming", "q": "Code: what is node.js?", "a": "JavaScript run outside browser."}
+{"category": "technology_programming", "q": "Code: what is react?", "a": "JS library by Facebook."}
+{"category": "technology_programming", "q": "Code: what is vue?", "a": "JS framework, simple style."}
+{"category": "technology_programming", "q": "Code: what is django?", "a": "Python web framework."}
+{"category": "technology_programming", "q": "Code: what is flask?", "a": "Lightweight Python web tool."}
+{"category": "technology_programming", "q": "Code: what is fastapi?", "a": "Modern Python web tool."}
+{"category": "technology_programming", "q": "Code: what is a framework?", "a": "A reusable code platform."}
+{"category": "technology_programming", "q": "Code: what is a library?", "a": "Reusable code you import."}
+{"category": "technology_programming", "q": "Code: what is open source?", "a": "Code anyone can read."}
+{"category": "technology_programming", "q": "Code: what is unit test?", "a": "A test for small code parts."}
+{"category": "technology_programming", "q": "Code: what is integration test?", "a": "Test of parts together."}
+{"category": "technology_programming", "q": "Code: what is version control?", "a": "Tracking code changes."}
+{"category": "technology_programming", "q": "Code: what is git?", "a": "Common version control tool."}
+{"category": "technology_programming", "q": "Code: what is github?", "a": "Cloud Git host."}
+{"category": "technology_programming", "q": "Code: what is a branch?", "a": "A line of code work."}
+{"category": "technology_programming", "q": "Code: what is merge?", "a": "Combine two branches."}
+{"category": "technology_programming", "q": "Code: what is a commit?", "a": "A saved change in Git."}

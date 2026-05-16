@@ -1,0 +1,130 @@
+﻿====================================================================
+  DLGN Char-LM PoC
+  Kawanishi Ren -- Can Boolean circuits learn language?
+  Device: CPU  PyTorch 2.7.0+cpu
+====================================================================
+[data] cache hit: 1,115,394 chars
+
+[vocab] size=61  text_len=80,000
+[data] train=71,984  val=7,984  in_features=976
+
+[DLGN] arch: 976 -> [512, 256, 128, 64] -> 61
+[DLGN] params: 1,362,813
+C:\Users\sioga\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\transformer.py:382: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[Transformer] d_model=64 layers=2  params: 108,861
+
+====================================================================
+  DLGN training  epochs=40  batch=256  lr=3e-3
+  Temperature annealing: 1.0 -> 0.1  (warm_hold=25%)
+====================================================================
+
+  Ep  tau  TrainLoss  ValPPL
+  -----------------------------------
+  4  1.000  3.2934  28.67
+  8  1.000  3.2236  25.95
+  12  0.858  2.7998  16.24
+  16  0.631  2.6516  14.38
+  20  0.464  2.5816  13.01
+  24  0.341  2.5418  12.19
+  28  0.251  2.5108  12.26
+  32  0.185  2.5014  11.84
+  36  0.136  2.4986  12.23
+  40  0.100  2.4969  11.83
+
+  Training time: 5728.3s
+
+====================================================================
+  Transformer training  epochs=40  batch=256  lr=3e-3
+====================================================================
+
+  Ep  tau  TrainLoss  ValPPL
+  -----------------------------------
+  4  1.000  1.8625  6.09
+  8  1.000  1.7494  5.59
+  12  1.000  1.6811  5.35
+  16  1.000  1.6303  5.23
+  20  1.000  1.5828  5.02
+  24  1.000  1.5375  5.00
+  28  1.000  1.5006  4.90
+  32  1.000  1.4735  4.87
+  36  1.000  1.4510  4.86
+  40  1.000  1.4417  4.86
+
+  Training time: 793.0s
+
+[collapse] Converting DLGN to hard Boolean circuit...
+
+====================================================================
+  Generated text: DLGN soft (temperature=0.8)
+====================================================================
+  ['First '] -> "First horo kane you ciu one tades wourase.\nFherfd toutiv 'renlere "
+  ['To be '] -> 'To be dee sins be cie there bout lir theselts,\n\nFoutey:v ho du de '
+  ['The ki'] -> 'The kir asirec if so hut ther hourair toud hetheo alomy weav cod o'
+  ['What i'] -> 'What ins uots there niseseyy\nSns thes yhe me gmvl\n\nCave Lootor ers'
+  ['O my ' ] -> 'O my firo cau asl, ine te d drath tho tine ag,ir alt ot thentinth'
+
+====================================================================
+  Generated text: DLGN greedy (temperature=0)
+====================================================================
+  ['First '] -> 'First the the the the the the the the the the the the the the the '
+  ['To be '] -> 'To be the the the the the the the the the the the the the the the '
+  ['The ki'] -> 'The kin the the the the the the the the the the the the the the th'
+
+====================================================================
+  Generated text: DLGN Hard Boolean Circuit
+====================================================================
+  ['First '] -> 'First iniz\n\nCn ereic\n\nMn:\nLay dill wid it no mel a hore ou, aier w'
+  ['To be '] -> 'To be yol in ere ne rave woriou rrouil ;re an!im ce dil ic to rehi'
+  ['The ki'] -> 'The kirio oue pone as ruen\n\nCn kive ine erare of por orid ao me ou'
+
+====================================================================
+  Generated text: Transformer (temperature=0.8)
+====================================================================
+  ['First '] -> 'First earn for a face.\n\nCORIOLANUS:\nI sland and to field multer\nTh'
+  ['To be '] -> 'To be at most them.\n\nVALERIA:\nHark her not to you eave valiant, in'
+  ['The ki'] -> 'The king your grave the with the wall to set is than inceeds, face'
+
+====================================================================
+  DLGN vs Transformer Comparison
+====================================================================
+  Model  Params  ValPPL  Speed(tok/s)
+  ----------------------------------------------------------
+  DLGN (soft)  1,362,813  11.83  18,299
+  DLGN (hard circuit)  1,362,813  15.16  61,991
+  Transformer  108,861  4.86  51,291
+
+  Hard circuit speed ratio vs Transformer: 1.21x
+  Hard circuit speed ratio vs DLGN soft:  3.39x
+
+====================================================================
+  Perplexity curve summary
+====================================================================
+  Epoch  DLGN PPL  TF PPL
+  ------------------------------
+  4  28.67  6.09
+  8  25.95  5.59
+  12  16.24  5.35
+  16  14.38  5.23
+  20  13.01  5.02
+  24  12.19  5.00
+  28  12.26  4.90
+  32  11.84  4.87
+  36  12.23  4.86
+  40  11.83  4.86
+
+====================================================================
+  Findings (Kawanishi Ren)
+====================================================================
+  Accuracy : DLGN lags behind Transformer but learning converges
+  DLGN PPL=11.83  TF PPL=4.86  ratio=2.44x
+  Speed  : Hard circuit is 1.2x faster than Transformer
+  Collapse : soft 18,299 -> hard 61,991 tok/s
+
+  [Conclusion]
+  - DLGN can learn Char-LM (perplexity decreases during training)
+  - Inference works even after collapsing to hard Boolean circuit
+  - Speed bottleneck: large input dim (context_len*vocab_size)
+  softmax-based input selection in DynamicGateLayer dominates
+  - For production: embedding dimension reduction or coarse one-hot
+

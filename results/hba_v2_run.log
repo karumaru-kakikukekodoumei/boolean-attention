@@ -1,0 +1,137 @@
+﻿====================================================================
+  HBA Char-LM v2 - Hierarchical Boolean Attention
+  Device: CPU  PyTorch 2.7.0+cpu
+====================================================================
+[CLI] epochs: 60
+[CLI] patience: 2
+[data] cache hit: 1,115,394 chars
+
+[vocab] size=61  text_len=80,000
+[data] train=71,984  val=7,984  context_len=16
+
+[HBA v2] params: 296,269
+  hidden_dim=96, n_layers=3, n_heads=8
+  router_hidden=[96, 48]
+  lambda_ent=0.01
+  head: spectral_norm
+  grad_clip: max_norm=1.0
+  patience=2 log-epochs  warm_hold=0.5
+  log_every=2  auto_calibrate=True
+
+====================================================================
+  HBA v2 training  epochs=60  batch=256  lr=0.003
+  Temperature: 1.0 -> 0.1  (warm_hold=50%)
+  Entropy regularization: lambda_ent=0.01
+  Early stopping: patience=2 log-epochs (enabled)
+====================================================================
+
+  Ep  tau  CE  EntReg  TotLoss  ValPPL  AvgMaskH  Best?
+  ----------------------------------------------------------------------
+  2  1.000  2.1202  -1.7532  0.3671  7.12 175.621109 *
+  4  1.000  1.8022  -1.7509  0.0512  5.86 175.765442 *
+  6  1.000  1.6510  -1.7517  -0.1007  5.60 175.725220 *
+  8  1.000  1.5504  -1.7521  -0.2018  5.32 175.634995 *
+  10  1.000  1.4750  -1.7523  -0.2773  5.35 175.724564
+  12  1.000  1.3985  -1.7526  -0.3541  5.33 175.669846
+
+  [early stop] no improvement for 2 log-epochs (best=5.3206 @ ep8). Stopping.
+
+  [best] restored from epoch 8  PPL=5.3206
+
+  Training time: 284.7s (4.7min)
+  Best epoch: 8  Best val PPL: 5.3206
+
+[Router Stats]
+  Final mask entropy (best model): 175.634995
+  (0 に近い = collapse、0.6931 付近 = 最大多様性)
+  OK: ルーター entropy は健全範囲
+
+[calibrate] Hard threshold calibration on val set:
+  Threshold  Hard PPL
+  ----------------------
+  -0.50  6.8472
+  -0.30  6.5440
+  -0.10  6.6911
+  0.00  6.9676
+  0.10  8.1699
+  0.30  8.3479
+  0.50  8.4733
+  -> Best threshold: -0.30  Hard PPL: 6.5440
+  [calibrate] Adopted threshold: -0.30  Hard PPL: 6.5440
+
+[collapse] HBA -> HardHBA (router {0,1}, threshold=-0.30)...
+
+====================================================================
+  Generated text: HBA v2 soft - greedy
+====================================================================
+  ['First '] -> 'First the had the common the had heard the had the consul the had '
+  ['To be '] -> 'To be the hather him to sentry the would the common the had heard '
+  ['The ki'] -> 'The kin the had his would the consulf the had his would the consul'
+
+====================================================================
+  Generated text: HBA v2 soft - sampled (temp=0.8)
+====================================================================
+  ['First '] -> 'First cass? Turther is have your trumiding he.\n\nThird Citizend fir'
+  ['To be '] -> 'To be hows would Your with and the propun after and to strong\nyour'
+  ['The ki'] -> 'The kid trento seem many to the\ntoo the entrose incedy to seenting'
+
+====================================================================
+  Generated text: HBA v2 Hard (threshold=-0.30)
+====================================================================
+  ['First '] -> 'First what chaces of the story: a,t I sa t\nyond, he hars ofuraring'
+  ['To be '] -> 'To be no crorantly.\n\nSICINIUS:\nAid then, ushinglal mack hingueds h'
+  ['The ki'] -> 'The kin grother thems, that lindry nenoursincess, which andingued\n'
+
+====================================================================
+  HBA v2 vs HBA v1 vs DLGN flat vs Transformer - 比較表
+====================================================================
+  Model  Params  ValPPL  HardPPL  Speed(tok/s)
+  -----------------------------------------------------------------------------
+  HBA v2 (soft, best restored)  296,269  5.32  -  11,185
+  HBA v2 (hard, thresh=-0.3)  296,269  -  6.54  14,311
+  HBA v1 Best (Ep12) [前回]  92,000  5.40  37.47  -
+  HBA v1 Final (Ep60) [前回]  92,000  9.75  37.47  22,828
+  DLGN flat (soft) [前回]  1,362,813  11.83  15.16  18,299
+  Transformer [前回]  108,861  4.86  -  51,291
+
+====================================================================
+  Perplexity curve (HBA v2, log_every=2)
+====================================================================
+  Epoch  ValPPL  Note
+  ----------------------------
+  2  7.12
+  4  5.86
+  6  5.60
+  8  5.32 <- BEST
+  10  5.35
+  12  5.33
+
+====================================================================
+  分析 - v2
+====================================================================
+  判定: HBA v2 が v1 Best を超えた (TF まで あと一歩)
+
+  HBA v2 soft PPL (best restored): 5.32
+  HBA v2 hard PPL (thresh=-0.30):  6.54
+  HBA v1 Best PPL [前回 Ep12]:  5.40
+  DLGN flat PPL [前回]:  11.83
+  Transformer PPL [前回]:  4.86
+
+  Best epoch: 8  (early stopping patience=2)
+  Final mask entropy: 175.634995
+  (ルーター collapse なし)
+  Adopted hard threshold: -0.30
+  Soft speed:  11,185 tok/s
+  Hard speed:  14,311 tok/s  (1.28x soft)
+  Hard vs TF [前回]: 0.28x
+
+  
+  - ルーター entropy 正則化: 適用済み (lambda_ent=0.0100)
+  - mean pooling 廃止: 各位置が独立保持 -> attention で選択的集約
+  - Looped 反復なし: 誤差累積ゼロ
+  [v2 改善]
+  - Best checkpoint: 保存 + restore 済 (ep8, PPL=5.3206)
+  - Early stopping: patience=2 log-epochs
+  - warm_hold=0.5  log_every=2
+  - Hard threshold calibration: ON (best=-0.30)
+

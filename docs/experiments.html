@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>実験編 — Boolean Attention</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="./">
+      <div class="brand-logo">01</div>
+      <div><div class="brand-name">かるまるラボ</div></div>
+      <div class="brand-tagline">/ Boolean Attention 2026.05</div>
+    </a>
+    <nav class="site-nav">
+      <a href="./">Overview</a>
+      <a href="theory.html">Theory</a>
+      <a href="experiments.html" class="active">Experiments</a>
+      <a href="chat.html">Chat</a>
+      <a href="https://github.com/karumaru-kakikukekodoumei/boolean-attention" target="_blank">GitHub →</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="hero-chip">// EXPERIMENT · 7 RUNS · 4 ARCHITECTURES</div>
+    <h2 class="section-title" data-index="00">実験概要</h2>
+    <p>データセットは全実験で <strong>TinyShakespeare 80KB / char-level / vocab=61</strong> に統一。計算機は <strong>RTX 4060 8GB</strong>。char-LM 単体のシンプル評価なので、Perplexity (PPL) のみで横並び比較。</p>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="01">Baseline: Transformer</h2>
+    <p>標準的な decoder-only Transformer。比較対象としての最終目標。</p>
+    <table class="result-table">
+      <thead><tr><th>項目</th><th class="num">値</th></tr></thead>
+      <tbody>
+        <tr><td>Hidden dim</td><td class="num">64</td></tr>
+        <tr><td>Layers</td><td class="num">2</td></tr>
+        <tr><td>Heads</td><td class="num">4</td></tr>
+        <tr><td>Context</td><td class="num">64</td></tr>
+        <tr class="highlight"><td><strong>PPL</strong></td><td class="num"><strong>4.86</strong></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="02">DLGN flat — 純 Boolean で言語学習</h2>
+    <p><code>src/dlgn_charlm.py</code></p>
+    <p>16 種類の論理ゲートを softmax で混合した DLGN 層を 4 段積んだ char-LM。</p>
+    <table class="result-table">
+      <thead><tr><th>項目</th><th class="num">値</th></tr></thead>
+      <tbody>
+        <tr><td>Layers</td><td class="num">4</td></tr>
+        <tr><td>Gates per layer</td><td class="num">256</td></tr>
+        <tr><td>Soft PPL</td><td class="num">11.83</td></tr>
+        <tr><td>Hard PPL</td><td class="num">15.16</td></tr>
+      </tbody>
+    </table>
+    <div class="story">
+      <h3>考察</h3>
+      <p>Boolean 回路だけで言語学習が <strong>できることは証明された</strong>。ただし Transformer の 4.86 にはまだ遠い。設計の工夫が必要なフェーズに入る。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="03">LoopedDLGN — Universal Transformer × Boolean (撃沈)</h2>
+    <p><code>src/looped_dlgn_charlm.py</code></p>
+    <p>同じ DLGN ブロックを入力依存で T 回繰り返し、固定点収束を狙う設計。バナッハの不動点定理に立脚。</p>
+    <table class="result-table">
+      <thead><tr><th>版</th><th>Pos Enc</th><th class="num">Hidden</th><th class="num">Max Iter</th><th class="num">Soft PPL</th><th class="num">Hard PPL</th></tr></thead>
+      <tbody>
+        <tr class="bad"><td>v1</td><td>なし</td><td class="num">128</td><td class="num">8</td><td class="num">11.05</td><td class="num">754.31</td></tr>
+        <tr class="bad"><td>v2</td><td>あり</td><td class="num">128</td><td class="num">8</td><td class="num">18.7</td><td class="num">312.4</td></tr>
+        <tr class="bad"><td>v3</td><td>あり</td><td class="num">256</td><td class="num">12</td><td class="num">17.9</td><td class="num">286.1</td></tr>
+      </tbody>
+    </table>
+    <div class="story bad">
+      <h3>原因</h3>
+      <p>ハードコラプス時に PPL が爆発的に暴騰。<strong>反復ごとに量子化誤差が蓄積する</strong>という構造的問題と判明。容量を倍に増やしても本質は解決せず、設計を根本から見直す必要があることが明白に。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="04">HBA v1 — Boolean Router + float Value</h2>
+    <p><code>src/hba_charlm.py</code></p>
+    <p>Attention のルーターのみ Boolean、値集約は float のまま。bilinear router 構造で実装。</p>
+    <table class="result-table">
+      <thead><tr><th>項目</th><th class="num">値</th></tr></thead>
+      <tbody>
+        <tr><td>Hidden dim / Layers / Heads</td><td class="num">64 / 2 / 4</td></tr>
+        <tr class="win"><td>Best PPL (Ep12)</td><td class="num">5.40</td></tr>
+        <tr class="bad"><td>Final PPL (Ep60)</td><td class="num">9.75</td></tr>
+      </tbody>
+    </table>
+    <div class="story">
+      <h3>考察</h3>
+      <p>TF 4.86 まで <strong>0.54 差</strong>まで肉薄。これは大きな飛躍。ただし学習後半で過学習し、最終 PPL は劣化。安定化が必要。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="05">HBA v2 — 安定化</h2>
+    <p>v1 の過学習問題に対処:</p>
+    <ul>
+      <li>Best checkpoint 保存 (最良 val PPL でリストア)</li>
+      <li>Early stopping (patience=5)</li>
+      <li>Hard threshold calibration (推論時の閾値を val で最適化)</li>
+      <li>温度の <code>warm_hold</code> パターン (最初は柔らかく、徐々に hard へ)</li>
+    </ul>
+    <table class="result-table">
+      <thead><tr><th>項目</th><th class="num">値</th></tr></thead>
+      <tbody>
+        <tr class="win"><td><strong>Soft PPL</strong></td><td class="num"><strong>5.32</strong></td></tr>
+        <tr class="win"><td><strong>Hard PPL</strong></td><td class="num"><strong>6.54</strong></td></tr>
+        <tr><td>Train time</td><td class="num">4.7 min</td></tr>
+      </tbody>
+    </table>
+    <div class="story good">
+      <h3>結果</h3>
+      <p>ハードコラプス後も健全な PPL を保つ。LoopedDLGN の Hard PPL 754 と比べて <strong>115 倍の改善</strong>。Boolean Router 設計の構造的優位が数値で実証された。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="06">HBA Distilled — Transformer を逆転</h2>
+    <p><code>src/hba_distill_charlm.py</code></p>
+    <p>教師 (Transformer baseline) → 生徒 (HBA v2 構造) に知識蒸留。CE × 0.3 + KL × 0.7, $T=8$。</p>
+    <table class="result-table">
+      <thead><tr><th>Model</th><th class="num">Soft PPL</th></tr></thead>
+      <tbody>
+        <tr><td>Teacher (Transformer)</td><td class="num">4.86</td></tr>
+        <tr class="highlight"><td><strong>Student (HBA distilled)</strong></td><td class="num"><strong>4.73</strong></td></tr>
+        <tr><td>Hard PPL</td><td class="num">6.31</td></tr>
+        <tr class="win"><td><strong>逆転幅</strong></td><td class="num"><strong>-0.13</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="story good">
+      <h3>論理回路が Transformer を超えた瞬間</h3>
+      <p>Born-again network の現象がここでも観測された形。教師のソフトラベルが実質的なデータオーグメンテーションとして機能し、生徒が教師を逆転。</p>
+    </div>
+
+    <h3>実装上の注意 — 温度整合性のバグ</h3>
+    <p>初期実装で温度 $\tau$ の整合性が取れておらず、訓練 eval (tau=1.0) と最終比較 (final_tau=0.1) で PPL が <strong>4.71 vs 8.72</strong> と乖離する事故が発生。</p>
+    <p>修正後:</p>
+    <ul>
+      <li>訓練 eval は <strong>現在のスケジューラ τ</strong> で評価</li>
+      <li>最終比較は <strong>best epoch 時点の実 τ</strong> を逆引きして使用</li>
+      <li>固定 <code>final_tau=0.1</code> のような恣意値は廃止</li>
+    </ul>
+    <p>これで再現性のある PPL 4.73 が出るように。</p>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-index="07">実行時間まとめ</h2>
+    <table class="result-table">
+      <thead><tr><th>実験</th><th>所要</th></tr></thead>
+      <tbody>
+        <tr><td>Transformer baseline</td><td>約 5 分</td></tr>
+        <tr><td>DLGN flat</td><td>約 5 分</td></tr>
+        <tr><td>LoopedDLGN v1/v2/v3</td><td>各 7-10 分</td></tr>
+        <tr><td>HBA v1/v2</td><td>各 4-5 分</td></tr>
+        <tr><td>HBA Distillation</td><td>約 10 分</td></tr>
+        <tr><td>ChatHBA (5377 QA × 50 ep)</td><td>約 30 分</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="divider-line">
+
+  <section>
+    <h2 class="section-title" data-index="∞">主要な発見</h2>
+    <ol>
+      <li><strong>論理ゲートだけで言語学習はできる</strong> (DLGN flat PPL 11.83)</li>
+      <li><strong>反復 Boolean は誤差が爆発する</strong> (LoopedDLGN PPL 754)</li>
+      <li><strong>Router だけ Boolean にすれば誤差は伝播しない</strong> (HBA Hard PPL 6.54)</li>
+      <li><strong>蒸留で Boolean モデルが Transformer を超える</strong> (PPL 4.73 vs 4.86)</li>
+      <li><strong>char-LM 容量では会話タスクは無理</strong> (ChatHBA 崩壊 — <a href="chat.html">詳細</a>)</li>
+    </ol>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div>
+    <a href="./">Overview</a> ·
+    <a href="theory.html">Theory</a> ·
+    <a href="experiments.html">Experiments</a> ·
+    <a href="chat.html">Chat</a> ·
+    <a href="https://github.com/karumaru-kakikukekodoumei/boolean-attention">GitHub</a> ·
+    <a href="https://www.youtube.com/@かるまる-LAB">YouTube</a>
+  </div>
+  <div style="margin-top: 14px; color: var(--dim);">© 2026 karumaru · MIT License</div>
+</footer>
+
+</body>
+</html>

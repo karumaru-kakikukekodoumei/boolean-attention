@@ -1,0 +1,94 @@
+﻿====================================================================
+  HBA Char-LM — Hierarchical Boolean Attention
+  Device: CPU  PyTorch 2.7.0+cpu
+====================================================================
+[CLI] epochs: 2
+[data] cache hit: 1,115,394 chars
+
+[vocab] size=61  text_len=80,000
+[data] train=71,984  val=7,984  context_len=16
+
+[HBA] params: 92,365
+  hidden_dim=64, n_layers=2, n_heads=4
+  router_hidden=[64, 32]
+  lambda_ent=0.01
+  head: spectral_norm
+  grad_clip: max_norm=1.0
+
+====================================================================
+  HBA training  epochs=2  batch=256  lr=0.003
+  Temperature: 1.0 -> 0.1  (warm_hold=25%)
+  Entropy regularization: lambda_ent=0.01
+====================================================================
+
+  Ep  tau  CE  EntReg  TotLoss  ValPPL  AvgMaskH
+  --------------------------------------------------------------
+  2  0.100  2.2204  -1.7519  0.4686  9.39 170.017975
+
+  Training time: 107.6s (1.8min)
+
+[Router Stats]
+  Final mask entropy: 170.017975
+  (0 に近い = collapse、0.6931 付近 = 最大多様性)
+  OK: ルーター entropy は健全範囲
+
+[collapse] HBA -> HardHBA (router のみ {0,1} 化)...
+
+====================================================================
+  Generated text: HBA soft — greedy
+====================================================================
+  ['First '] -> 'First are tour ing and and and inghe to wit he he he he and and an'
+  ['To be '] -> 'To be are to wit he he he he and and and tour hit he he he and and'
+  ['The ki'] -> 'The kit and and hit he to wit he he he he and and and tour hit he '
+
+====================================================================
+  Generated text: HBA soft — sampled (temp=0.8)
+====================================================================
+  ['First '] -> 'First vearel: recofouri, to ancecelar bat tand of were Cor mior wi'
+  ['To be '] -> 'To be hoult fod;\ndown ir ray hoursthechou fiar Sof bom.\n\nK is?\n?NI'
+  ['The ki'] -> 'The kimurthe lagse to to ting hou yo\nhis ing ant hand and oods we '
+
+====================================================================
+  Generated text: HBA Hard (router hard {0,1})
+====================================================================
+  ['First '] -> 'First Soulde of ary usutreneom seathe andit nor panderation iertie'
+  ['To be '] -> 'To be hale ars iiel\nMizen: ris to bacu mare, wow hik be ar arce no'
+  ['The ki'] -> 'The kico!\n.\nLAMNC; haS:\nerie me hou treespoor hiaS: More: poou he '
+
+====================================================================
+  HBA vs DLGN flat vs Transformer — 比較表
+====================================================================
+  Model  Params  ValPPL  Speed(tok/s)
+  ----------------------------------------------------------------
+  HBA (soft)  92,365  9.39  13,258
+  HBA (hard, router={0,1})  92,365  10.60  10,741
+  DLGN flat (soft) [前回]  1,362,813  11.83  18,299
+  DLGN flat (hard) [前回]  1,362,813  15.16  61,991
+  Transformer [前回]  108,861  4.86  51,291
+
+====================================================================
+  Perplexity curve (HBA)
+====================================================================
+  Epoch  ValPPL
+  --------------------
+  2  9.39
+
+====================================================================
+  分析
+====================================================================
+  判定: HBA が DLGN flat より改善 (Boolean Attention 有効)
+  HBA soft PPL:  9.39
+  HBA hard PPL:  10.60
+  DLGN flat PPL [前回]: 11.83
+  Transformer PPL [前回]: 4.86
+  Final mask entropy:  170.017975
+  (ルーター collapse なし)
+  Soft speed:  13,258 tok/s
+  Hard speed:  10,741 tok/s  (0.81x soft)
+  Hard vs TF [前回]: 0.21x
+
+  
+  - ルーター entropy 正則化: 適用済み (lambda_ent=0.0100)
+  - mean pooling 廃止: 各位置が独立保持 → attention で選択的集約
+  - Looped 反復なし: 誤差累積ゼロ
+

@@ -1,0 +1,87 @@
+﻿====================================================================
+  ChatHBA - HBA Causal Chat LM (Plan-A: small)
+  Design: Chiba Tetsuya / Impl: Kawanishi Ren (AI Eng)
+  PyTorch 2.7.0+cpu  device=CPU
+====================================================================
+  epochs: 40
+  context_len: 64
+  hidden_dim: 64
+  n_layers: 3
+  n_heads: 4
+  patience: 6
+  batch: 128
+  lr: 0.003
+  lambda_ent: 0.01
+  warm_hold: 0.2
+  subset: all
+====================================================================
+
+[data] loading corpus...
+[data] 5377 Q&A pairs loaded
+[vocab] size=77  (special: PAD='\x00', END='\x03')
+[data] building dataset (context_len=64)...
+[data] train=258,381  val=29,572  (2.6s)
+
+[model] ChatHBA params: 136,613
+  hidden_dim=64  n_layers=3  n_heads=4
+  head: spectral_norm (Nada's note: inherited)
+  entropy reg: lambda_ent=0.01 (Chiba: never remove)
+  grad_clip: max_norm=1.0 (Nada's note: inherited)
+
+====================================================================
+  ChatHBA training  epochs=40  batch=128  lr=0.003
+  Temperature: 1.0 -> 0.1  (warm_hold=20%)
+  Early stopping: patience=6 log-epochs
+====================================================================
+
+  Ep  tau  CE  EntReg  TotLoss  ValPPL  MaskH  Best?
+  -----------------------------------------------------------------
+  2  1.000  1.0684  -0.8376  0.2308  7.03 165.32011 *
+  4  1.000  0.7777  -0.8226  -0.0449  8.50 164.47353
+  6  1.000  0.6724  -0.8220  -0.1496  10.09 164.30042
+  8  1.000  0.6099  -0.8220  -0.2121  12.13 164.31352
+  10  0.866  0.5696  -0.8219  -0.2523  14.06 164.11908
+  12  0.750  0.5403  -0.8217  -0.2814  17.15 163.98415
+  14  0.649  0.5151  -0.8215  -0.3064  21.41 164.00262
+
+  [early stop] no improvement for 6 log-epochs (best=7.0349 @ ep2). Stopping.
+
+  [best] restored from epoch 2  PPL=7.0349
+
+  Training time: 4464.9s (74.4min)
+  Best epoch: 2  Best val PPL: 7.0349
+  Checkpoint saved: C:\Users\sioga\desktop\boolean-attention\projects\dlgn-arithmetic\chat\chat_hba_best.pt
+
+====================================================================
+  Generation examples (temperature=0.8)
+====================================================================
+  Q: Who painted the Mona Lisa?
+  A: Pibetyer int ime Arsice in Hele.
+
+  Q: What is the capital of France?
+  A: It is Otewkia.
+
+  Q: Who wrote Romeo and Juliet?
+  A: The Rison Gridewerl.
+
+====================================================================
+  ChatHBA Summary
+====================================================================
+  params  : 136,613
+  vocab_size  : 77
+  best val PPL : 7.0349  (ep2)
+  final PPL  : 7.3566
+  mask entropy : 163.274323
+  train time  : 4464.9s
+  checkpoint  : C:\Users\sioga\desktop\boolean-attention\projects\dlgn-arithmetic\chat\chat_hba_best.pt
+
+  Epoch  ValPPL  Note
+  ----------------------------
+  2  7.0349 <- BEST
+  4  8.5040
+  6  10.0909
+  8  12.1322
+  10  14.0552
+  12  17.1520
+  14  21.4128
+

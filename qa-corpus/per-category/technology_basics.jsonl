@@ -1,0 +1,150 @@
+{"category": "technology_basics", "q": "Who founded Microsoft?", "a": "Bill Gates and Paul Allen."}
+{"category": "technology_basics", "q": "Who founded Apple?", "a": "Steve Jobs, Wozniak, Wayne."}
+{"category": "technology_basics", "q": "Who founded Google?", "a": "Larry Page and Sergey Brin."}
+{"category": "technology_basics", "q": "Who founded Amazon?", "a": "Jeff Bezos founded it."}
+{"category": "technology_basics", "q": "Who founded Facebook?", "a": "Mark Zuckerberg and friends."}
+{"category": "technology_basics", "q": "Who founded Tesla?", "a": "Martin Eberhard and Tarpenning."}
+{"category": "technology_basics", "q": "Who founded SpaceX?", "a": "Elon Musk founded it."}
+{"category": "technology_basics", "q": "Who founded Twitter?", "a": "Jack Dorsey and others."}
+{"category": "technology_basics", "q": "Who founded YouTube?", "a": "Steve Chen, Chad Hurley, Karim."}
+{"category": "technology_basics", "q": "Who founded Netflix?", "a": "Reed Hastings and Marc Randolph."}
+{"category": "technology_basics", "q": "Who founded Uber?", "a": "Travis Kalanick and Garrett Camp."}
+{"category": "technology_basics", "q": "Who founded Airbnb?", "a": "Brian Chesky and others."}
+{"category": "technology_basics", "q": "Who founded LinkedIn?", "a": "Reid Hoffman and others."}
+{"category": "technology_basics", "q": "Who founded Instagram?", "a": "Kevin Systrom and Krieger."}
+{"category": "technology_basics", "q": "Who founded WhatsApp?", "a": "Jan Koum and Brian Acton."}
+{"category": "technology_basics", "q": "Who founded Spotify?", "a": "Daniel Ek and Lorentzon."}
+{"category": "technology_basics", "q": "Who founded TikTok?", "a": "Zhang Yiming founded ByteDance."}
+{"category": "technology_basics", "q": "Who founded Snapchat?", "a": "Evan Spiegel and partners."}
+{"category": "technology_basics", "q": "Who founded Reddit?", "a": "Steve Huffman and Aaron Swartz."}
+{"category": "technology_basics", "q": "Who founded Wikipedia?", "a": "Jimmy Wales and Larry Sanger."}
+{"category": "technology_basics", "q": "What is HTML?", "a": "Markup for web pages."}
+{"category": "technology_basics", "q": "What is CSS?", "a": "Style language for web pages."}
+{"category": "technology_basics", "q": "What is JavaScript?", "a": "Language to run web logic."}
+{"category": "technology_basics", "q": "What is Python?", "a": "A popular programming language."}
+{"category": "technology_basics", "q": "What is Java?", "a": "A widely used programming language."}
+{"category": "technology_basics", "q": "What is C++?", "a": "A fast systems language."}
+{"category": "technology_basics", "q": "What is the internet?", "a": "Global network of computers."}
+{"category": "technology_basics", "q": "What is the World Wide Web?", "a": "Web of pages on the internet."}
+{"category": "technology_basics", "q": "What is an URL?", "a": "A web address like example.com."}
+{"category": "technology_basics", "q": "What is a browser?", "a": "Software to view web pages."}
+{"category": "technology_basics", "q": "Name a web browser.", "a": "Chrome, Firefox, Safari."}
+{"category": "technology_basics", "q": "What is Chrome?", "a": "Google's web browser."}
+{"category": "technology_basics", "q": "What is Firefox?", "a": "Mozilla's web browser."}
+{"category": "technology_basics", "q": "What is Safari?", "a": "Apple's web browser."}
+{"category": "technology_basics", "q": "What is an OS?", "a": "Operating system like Windows."}
+{"category": "technology_basics", "q": "Name an OS.", "a": "Windows, macOS, Linux."}
+{"category": "technology_basics", "q": "What is Windows?", "a": "Microsoft's OS for PCs."}
+{"category": "technology_basics", "q": "What is macOS?", "a": "Apple's OS for Macs."}
+{"category": "technology_basics", "q": "What is Linux?", "a": "Open source OS family."}
+{"category": "technology_basics", "q": "What is iOS?", "a": "Apple's mobile OS."}
+{"category": "technology_basics", "q": "What is Android?", "a": "Google's mobile OS."}
+{"category": "technology_basics", "q": "What is a CPU?", "a": "Central processor of a computer."}
+{"category": "technology_basics", "q": "What is RAM?", "a": "Memory used while running."}
+{"category": "technology_basics", "q": "What is a hard drive?", "a": "Storage for files long-term."}
+{"category": "technology_basics", "q": "What is SSD?", "a": "Solid state drive, fast storage."}
+{"category": "technology_basics", "q": "What is a GPU?", "a": "Graphics processor unit."}
+{"category": "technology_basics", "q": "What is WiFi?", "a": "Wireless network technology."}
+{"category": "technology_basics", "q": "What is Bluetooth?", "a": "Short range wireless link."}
+{"category": "technology_basics", "q": "What is 5G?", "a": "Fifth generation mobile network."}
+{"category": "technology_basics", "q": "What is AI?", "a": "Artificial intelligence."}
+{"category": "technology_basics", "q": "What is machine learning?", "a": "Software that learns from data."}
+{"category": "technology_basics", "q": "What is deep learning?", "a": "ML with deep neural networks."}
+{"category": "technology_basics", "q": "What is a neural network?", "a": "Layers of weighted units."}
+{"category": "technology_basics", "q": "What is ChatGPT?", "a": "An AI chatbot by OpenAI."}
+{"category": "technology_basics", "q": "What is Claude?", "a": "An AI assistant by Anthropic."}
+{"category": "technology_basics", "q": "What is open source?", "a": "Software with public code."}
+{"category": "technology_basics", "q": "What is GitHub?", "a": "A site to share code."}
+{"category": "technology_basics", "q": "What is Git?", "a": "Version control software."}
+{"category": "technology_basics", "q": "What is a file?", "a": "A unit of stored data."}
+{"category": "technology_basics", "q": "What is a folder?", "a": "A container for files."}
+{"category": "technology_basics", "q": "What is encryption?", "a": "Hiding data with a key."}
+{"category": "technology_basics", "q": "What is a password?", "a": "A secret used to log in."}
+{"category": "technology_basics", "q": "What is a hacker?", "a": "Someone who studies systems."}
+{"category": "technology_basics", "q": "What is malware?", "a": "Bad software like viruses."}
+{"category": "technology_basics", "q": "What is a virus?", "a": "A program that spreads itself."}
+{"category": "technology_basics", "q": "What is a server?", "a": "A computer serving requests."}
+{"category": "technology_basics", "q": "What is a client?", "a": "A computer making requests."}
+{"category": "technology_basics", "q": "What is cloud computing?", "a": "Computing on remote servers."}
+{"category": "technology_basics", "q": "What is a database?", "a": "An organized store of data."}
+{"category": "technology_basics", "q": "What is SQL?", "a": "Language to query databases."}
+{"category": "technology_basics", "q": "What is a smartphone?", "a": "A pocket computer with phone."}
+{"category": "technology_basics", "q": "Who invented the computer?", "a": "Many people, including Babbage."}
+{"category": "technology_basics", "q": "Who invented the World Wide Web?", "a": "Tim Berners-Lee."}
+{"category": "technology_basics", "q": "Who is Alan Turing?", "a": "Father of modern computer science."}
+{"category": "technology_basics", "q": "Who is Linus Torvalds?", "a": "Creator of Linux."}
+{"category": "technology_basics", "q": "Who is Bjarne Stroustrup?", "a": "Creator of C++."}
+{"category": "technology_basics", "q": "Who is Guido van Rossum?", "a": "Creator of Python."}
+{"category": "technology_basics", "q": "Who is Brendan Eich?", "a": "Creator of JavaScript."}
+{"category": "technology_basics", "q": "What is binary?", "a": "Numbers made of 0 and 1."}
+{"category": "technology_basics", "q": "What is a bit?", "a": "A 0 or 1, smallest data unit."}
+{"category": "technology_basics", "q": "What is a byte?", "a": "Eight bits together."}
+{"category": "technology_basics", "q": "How many bits in a byte?", "a": "Eight bits."}
+{"category": "technology_basics", "q": "Tech: Who founded Microsoft?", "a": "Bill Gates and Paul Allen."}
+{"category": "technology_basics", "q": "Tech: Who founded Apple?", "a": "Steve Jobs, Wozniak, Wayne."}
+{"category": "technology_basics", "q": "Tech: Who founded Google?", "a": "Larry Page and Sergey Brin."}
+{"category": "technology_basics", "q": "Tech: Who founded Amazon?", "a": "Jeff Bezos founded it."}
+{"category": "technology_basics", "q": "Tech: Who founded Facebook?", "a": "Mark Zuckerberg and friends."}
+{"category": "technology_basics", "q": "Tech: Who founded Tesla?", "a": "Martin Eberhard and Tarpenning."}
+{"category": "technology_basics", "q": "Tech: Who founded SpaceX?", "a": "Elon Musk founded it."}
+{"category": "technology_basics", "q": "Tech: Who founded Twitter?", "a": "Jack Dorsey and others."}
+{"category": "technology_basics", "q": "Tech: Who founded YouTube?", "a": "Steve Chen, Chad Hurley, Karim."}
+{"category": "technology_basics", "q": "Tech: Who founded Netflix?", "a": "Reed Hastings and Marc Randolph."}
+{"category": "technology_basics", "q": "Tech: Who founded Uber?", "a": "Travis Kalanick and Garrett Camp."}
+{"category": "technology_basics", "q": "Tech: Who founded Airbnb?", "a": "Brian Chesky and others."}
+{"category": "technology_basics", "q": "Tech: Who founded LinkedIn?", "a": "Reid Hoffman and others."}
+{"category": "technology_basics", "q": "Tech: Who founded Instagram?", "a": "Kevin Systrom and Krieger."}
+{"category": "technology_basics", "q": "Tech: Who founded WhatsApp?", "a": "Jan Koum and Brian Acton."}
+{"category": "technology_basics", "q": "Tech: Who founded Spotify?", "a": "Daniel Ek and Lorentzon."}
+{"category": "technology_basics", "q": "Tech: Who founded TikTok?", "a": "Zhang Yiming founded ByteDance."}
+{"category": "technology_basics", "q": "Tech: Who founded Snapchat?", "a": "Evan Spiegel and partners."}
+{"category": "technology_basics", "q": "Tech: Who founded Reddit?", "a": "Steve Huffman and Aaron Swartz."}
+{"category": "technology_basics", "q": "Tech: Who founded Wikipedia?", "a": "Jimmy Wales and Larry Sanger."}
+{"category": "technology_basics", "q": "Tech: What is HTML?", "a": "Markup for web pages."}
+{"category": "technology_basics", "q": "Tech: What is CSS?", "a": "Style language for web pages."}
+{"category": "technology_basics", "q": "Tech: What is JavaScript?", "a": "Language to run web logic."}
+{"category": "technology_basics", "q": "Tech: What is Python?", "a": "A popular programming language."}
+{"category": "technology_basics", "q": "Tech: What is Java?", "a": "A widely used programming language."}
+{"category": "technology_basics", "q": "Tech: What is C++?", "a": "A fast systems language."}
+{"category": "technology_basics", "q": "Tech: What is the internet?", "a": "Global network of computers."}
+{"category": "technology_basics", "q": "Tech: What is the World Wide Web?", "a": "Web of pages on the internet."}
+{"category": "technology_basics", "q": "Tech: What is an URL?", "a": "A web address like example.com."}
+{"category": "technology_basics", "q": "Tech: What is a browser?", "a": "Software to view web pages."}
+{"category": "technology_basics", "q": "Tech: Name a web browser.", "a": "Chrome, Firefox, Safari."}
+{"category": "technology_basics", "q": "Tech: What is Chrome?", "a": "Google's web browser."}
+{"category": "technology_basics", "q": "Tech: What is Firefox?", "a": "Mozilla's web browser."}
+{"category": "technology_basics", "q": "Tech: What is Safari?", "a": "Apple's web browser."}
+{"category": "technology_basics", "q": "Tech: What is an OS?", "a": "Operating system like Windows."}
+{"category": "technology_basics", "q": "Tech: Name an OS.", "a": "Windows, macOS, Linux."}
+{"category": "technology_basics", "q": "Tech: What is Windows?", "a": "Microsoft's OS for PCs."}
+{"category": "technology_basics", "q": "Tech: What is macOS?", "a": "Apple's OS for Macs."}
+{"category": "technology_basics", "q": "Tech: What is Linux?", "a": "Open source OS family."}
+{"category": "technology_basics", "q": "Tech: What is iOS?", "a": "Apple's mobile OS."}
+{"category": "technology_basics", "q": "Tech: What is Android?", "a": "Google's mobile OS."}
+{"category": "technology_basics", "q": "Tech: What is a CPU?", "a": "Central processor of a computer."}
+{"category": "technology_basics", "q": "Tech: What is RAM?", "a": "Memory used while running."}
+{"category": "technology_basics", "q": "Tech: What is a hard drive?", "a": "Storage for files long-term."}
+{"category": "technology_basics", "q": "Tech: What is SSD?", "a": "Solid state drive, fast storage."}
+{"category": "technology_basics", "q": "Tech: What is a GPU?", "a": "Graphics processor unit."}
+{"category": "technology_basics", "q": "Tech: What is WiFi?", "a": "Wireless network technology."}
+{"category": "technology_basics", "q": "Tech: What is Bluetooth?", "a": "Short range wireless link."}
+{"category": "technology_basics", "q": "Tech: What is 5G?", "a": "Fifth generation mobile network."}
+{"category": "technology_basics", "q": "Tech: What is AI?", "a": "Artificial intelligence."}
+{"category": "technology_basics", "q": "Tech: What is machine learning?", "a": "Software that learns from data."}
+{"category": "technology_basics", "q": "Tech: What is deep learning?", "a": "ML with deep neural networks."}
+{"category": "technology_basics", "q": "Tech: What is a neural network?", "a": "Layers of weighted units."}
+{"category": "technology_basics", "q": "Tech: What is ChatGPT?", "a": "An AI chatbot by OpenAI."}
+{"category": "technology_basics", "q": "Tech: What is Claude?", "a": "An AI assistant by Anthropic."}
+{"category": "technology_basics", "q": "Tech: What is open source?", "a": "Software with public code."}
+{"category": "technology_basics", "q": "Tech: What is GitHub?", "a": "A site to share code."}
+{"category": "technology_basics", "q": "Tech: What is Git?", "a": "Version control software."}
+{"category": "technology_basics", "q": "Tech: What is a file?", "a": "A unit of stored data."}
+{"category": "technology_basics", "q": "Tech: What is a folder?", "a": "A container for files."}
+{"category": "technology_basics", "q": "Tech: What is encryption?", "a": "Hiding data with a key."}
+{"category": "technology_basics", "q": "Tech: What is a password?", "a": "A secret used to log in."}
+{"category": "technology_basics", "q": "Tech: What is a hacker?", "a": "Someone who studies systems."}
+{"category": "technology_basics", "q": "Tech: What is malware?", "a": "Bad software like viruses."}
+{"category": "technology_basics", "q": "Tech: What is a virus?", "a": "A program that spreads itself."}
+{"category": "technology_basics", "q": "Tech: What is a server?", "a": "A computer serving requests."}
+{"category": "technology_basics", "q": "Tech: What is a client?", "a": "A computer making requests."}
+{"category": "technology_basics", "q": "Tech: What is cloud computing?", "a": "Computing on remote servers."}

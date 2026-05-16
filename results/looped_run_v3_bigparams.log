@@ -1,0 +1,118 @@
+﻿====================================================================
+  LoopedDLGN Char-LM PoC
+  Device: CPU  PyTorch 2.7.0+cpu
+====================================================================
+[data] cache hit: 1,115,394 chars
+
+[vocab] size=61  text_len=80,000
+[data] train=71,984  val=7,984  context_len=16
+[CLI] hidden_dim: 256
+[CLI] block_hidden: [512, 512, 256]
+[LoopedDLGN] スペクトルノルム正則化 有効化 (lambda=0.001)
+
+[LoopedDLGN] params: 1,428,541
+  hidden_dim=256, max_iters=8
+  block_hidden=[512, 512, 256], halt_threshold=0.05
+  use_pos_enc=False
+  shared_block in_features=512, num_classes=256
+  [指摘反映]
+  - head に nn.utils.spectral_norm 適用 (L<1 を外部担保)
+  - shared_block にスペクトルノルムペナルティ λ=1e-3
+  - 勾配クリップ max_norm=1.0 (深い反復対応)
+
+====================================================================
+  LoopedDLGN training  epochs=60  batch=256  lr=0.003
+  Temperature annealing: 1.0 -> 0.1  (warm_hold=25%)
+  Gradient clip: max_norm=1.0
+====================================================================
+
+  Ep  tau  TrainLoss  ValPPL
+  -----------------------------------
+  6  1.000  3.2214  24.91
+  12  1.000  3.1329  22.98
+  18  0.858  3.0487  20.75
+  24  0.631  3.0127  19.84
+  30  0.464  2.9643  19.08
+  36  0.341  2.9377  18.43
+  42  0.251  2.9207  18.12
+  48  0.185  2.9117  18.02
+  54  0.136  2.9037  17.94
+  60  0.100  2.9020  17.93
+
+  Training time: 4397.2s (73.3min)
+
+[収束統計 (推論時)]
+  平均収束反復数: 4.50 / 8
+  早期停止率: 87.5%  (n=256)
+
+[collapse] Converting LoopedDLGN to hard Boolean circuit...
+
+====================================================================
+  Generated text: LoopedDLGN soft (temperature=0.8)
+====================================================================
+  ['First '] -> 'First koahaavfr l o soh,wto aoledm  ome,ntf yetouade\nW? lmet oe n'
+  ['To be '] -> 'To be hhatbatten \neeth  htolowthph  hdoe  phahceaebo unyd  tdael t'
+  ['The ki'] -> 'The kiawatort eines  natuum neoalftd  et ino  oht htbah hme feosh'
+
+====================================================================
+  Generated text: LoopedDLGN greedy (temperature=0)
+====================================================================
+  ['First '] -> 'First ooootttt  oo tt ooootttt  oo tt ooootttt  oo tt ooootttt '
+  ['To be '] -> 'To be aaapatttt  te te eeeeetttt  te te eeeeetttt  te te eeeeetttt'
+  ['The ki'] -> 'The kiaaatttte  tte teeeeettte  tte teeeeettte  tte teeeeettte '
+
+====================================================================
+  Generated text: LoopedDLGN Hard Boolean Circuit (temperature=0.8)
+====================================================================
+  ['First '] -> 'First Mjjohub??:GLG:LL:\nO At\nator:agN:h:aa.\nGAA.,\n o n:sND:t:SWhww'
+  ['To be '] -> 'To be wjwwoohc ?LjLLA:LA::,\nOWowt.\n\nm\n gMNENzz:toMoz:h\n,u\n anzzzz\n'
+  ['The ki'] -> 'The kiBbwjoa v ,?r.\n\nNNALENEzS:uumts:wn hw\n\n\nS:SSYwabtzss,lhf?\n A\n'
+
+====================================================================
+  LoopedDLGN vs DLGN flat vs Transformer — 比較表
+====================================================================
+  Model  Params  ValPPL  Speed(tok/s)
+  --------------------------------------------------------------
+  LoopedDLGN (soft)  1,428,541  17.93  2,405
+  LoopedDLGN (hard circuit)  1,428,541  650.94  6,098
+  DLGN flat (soft) [前回]  1,362,813  11.83  18,299
+  DLGN flat (hard) [前回]  1,362,813  15.16  61,991
+  Transformer [前回]  108,861  4.86  51,291
+
+  LoopedDLGN vs TF (前回): PPL ratio = 3.69x
+  Hard circuit speed vs TF (前回): 0.12x
+  Hard vs Soft speed: 2.54x
+
+====================================================================
+  Perplexity curve (LoopedDLGN)
+====================================================================
+  Epoch  ValPPL
+  --------------------
+  6  24.91
+  12  22.98
+  18  20.75
+  24  19.84
+  30  19.08
+  36  18.43
+  42  18.12
+  48  18.02
+  54  17.94
+  60  17.93
+
+====================================================================
+  分析
+====================================================================
+  判定: LoopedDLGN と DLGN flat 同等 — アーキ変更の効果が限定的
+  LoopedDLGN soft PPL:  17.93
+  LoopedDLGN hard PPL:  650.94
+  DLGN flat soft PPL:  11.83 [前回]
+  Transformer PPL:  4.86 [前回]
+  平均収束反復数:  4.50 / 8
+  早期停止率:  87.5%
+
+  [次フェーズ候補]
+  - スペクトルノルム解析結果 → shared_block_wrapper.enable_spectral_norm()
+  - use_pos_enc=True で位置情報あり版を試す
+  - max_iters=16 に増やして深さを稼ぐ
+  - 案4 Bloom Filter を入力に追加してテキスト統計記憶を補強
+

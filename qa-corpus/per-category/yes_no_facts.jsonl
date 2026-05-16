@@ -1,0 +1,200 @@
+{"category": "yes_no_facts", "q": "Is the sun hot?", "a": "Yes, very hot."}
+{"category": "yes_no_facts", "q": "Is the moon hot?", "a": "No, the moon is cold."}
+{"category": "yes_no_facts", "q": "Is water wet?", "a": "Yes, water is wet."}
+{"category": "yes_no_facts", "q": "Is ice cold?", "a": "Yes, ice is cold."}
+{"category": "yes_no_facts", "q": "Is fire hot?", "a": "Yes, fire is hot."}
+{"category": "yes_no_facts", "q": "Is snow cold?", "a": "Yes, snow is cold."}
+{"category": "yes_no_facts", "q": "Is the sky blue?", "a": "Yes, often it is."}
+{"category": "yes_no_facts", "q": "Is grass green?", "a": "Yes, usually green."}
+{"category": "yes_no_facts", "q": "Is a tomato a fruit?", "a": "Yes, it is."}
+{"category": "yes_no_facts", "q": "Is a potato a fruit?", "a": "No, it is a vegetable."}
+{"category": "yes_no_facts", "q": "Are dolphins fish?", "a": "No, they are mammals."}
+{"category": "yes_no_facts", "q": "Are whales fish?", "a": "No, they are mammals."}
+{"category": "yes_no_facts", "q": "Are bats birds?", "a": "No, they are mammals."}
+{"category": "yes_no_facts", "q": "Are penguins birds?", "a": "Yes, they are."}
+{"category": "yes_no_facts", "q": "Can pigs fly?", "a": "No, pigs cannot fly."}
+{"category": "yes_no_facts", "q": "Can dogs talk?", "a": "No, dogs cannot speak."}
+{"category": "yes_no_facts", "q": "Can fish breathe air?", "a": "No, they need water."}
+{"category": "yes_no_facts", "q": "Can cats swim?", "a": "Most cats can, but dislike water."}
+{"category": "yes_no_facts", "q": "Can humans fly?", "a": "Not without machines."}
+{"category": "yes_no_facts", "q": "Is Earth round?", "a": "Yes, roughly a sphere."}
+{"category": "yes_no_facts", "q": "Is Earth flat?", "a": "No, it is round."}
+{"category": "yes_no_facts", "q": "Is the sun a star?", "a": "Yes, it is."}
+{"category": "yes_no_facts", "q": "Is Pluto a planet?", "a": "No, it is a dwarf planet."}
+{"category": "yes_no_facts", "q": "Is the Moon a planet?", "a": "No, it is a satellite."}
+{"category": "yes_no_facts", "q": "Does the Sun rise in the east?", "a": "Yes, in the east."}
+{"category": "yes_no_facts", "q": "Does the Sun set in the west?", "a": "Yes, in the west."}
+{"category": "yes_no_facts", "q": "Is gold heavy?", "a": "Yes, gold is dense and heavy."}
+{"category": "yes_no_facts", "q": "Is wood light?", "a": "Most wood is light."}
+{"category": "yes_no_facts", "q": "Is iron magnetic?", "a": "Yes, iron is magnetic."}
+{"category": "yes_no_facts", "q": "Is glass solid?", "a": "Yes, glass is a solid."}
+{"category": "yes_no_facts", "q": "Is air a liquid?", "a": "No, air is a gas."}
+{"category": "yes_no_facts", "q": "Is steam a gas?", "a": "Yes, water vapor."}
+{"category": "yes_no_facts", "q": "Is water a liquid?", "a": "Yes, at room temperature."}
+{"category": "yes_no_facts", "q": "Is sand a solid?", "a": "Yes, made of solid grains."}
+{"category": "yes_no_facts", "q": "Is a triangle a shape?", "a": "Yes, with three sides."}
+{"category": "yes_no_facts", "q": "Is a circle a shape?", "a": "Yes, round shape."}
+{"category": "yes_no_facts", "q": "Is the moon bigger than Earth?", "a": "No, much smaller."}
+{"category": "yes_no_facts", "q": "Is Jupiter bigger than Earth?", "a": "Yes, much bigger."}
+{"category": "yes_no_facts", "q": "Is the Pacific bigger than the Atlantic?", "a": "Yes, much bigger."}
+{"category": "yes_no_facts", "q": "Is Mount Everest tall?", "a": "Yes, the tallest mountain."}
+{"category": "yes_no_facts", "q": "Is the Nile a long river?", "a": "Yes, one of the longest."}
+{"category": "yes_no_facts", "q": "Are stars bigger than planets?", "a": "Yes, much bigger."}
+{"category": "yes_no_facts", "q": "Is light faster than sound?", "a": "Yes, much faster."}
+{"category": "yes_no_facts", "q": "Is sound faster than walking?", "a": "Yes, far faster."}
+{"category": "yes_no_facts", "q": "Is winter colder than summer?", "a": "Yes, in most places."}
+{"category": "yes_no_facts", "q": "Is summer warmer than winter?", "a": "Yes, in most places."}
+{"category": "yes_no_facts", "q": "Is December a winter month?", "a": "Yes, in the north."}
+{"category": "yes_no_facts", "q": "Is July a summer month?", "a": "Yes, in the north."}
+{"category": "yes_no_facts", "q": "Is 7 a prime number?", "a": "Yes, 7 is prime."}
+{"category": "yes_no_facts", "q": "Is 9 a prime number?", "a": "No, 9 is 3 times 3."}
+{"category": "yes_no_facts", "q": "Is 0 an even number?", "a": "Yes, zero is even."}
+{"category": "yes_no_facts", "q": "Is 1 a prime number?", "a": "No, 1 is not prime."}
+{"category": "yes_no_facts", "q": "Is pi exactly 3.14?", "a": "No, pi is endless."}
+{"category": "yes_no_facts", "q": "Is a square a rectangle?", "a": "Yes, a special rectangle."}
+{"category": "yes_no_facts", "q": "Is a circle a polygon?", "a": "No, circles have no sides."}
+{"category": "yes_no_facts", "q": "Is the Earth older than humans?", "a": "Yes, far older."}
+{"category": "yes_no_facts", "q": "Is Africa a continent?", "a": "Yes, a continent."}
+{"category": "yes_no_facts", "q": "Is Australia an island?", "a": "Yes, and a continent."}
+{"category": "yes_no_facts", "q": "Is Greenland an island?", "a": "Yes, the largest island."}
+{"category": "yes_no_facts", "q": "Is the Arctic an ocean?", "a": "Yes, the Arctic Ocean."}
+{"category": "yes_no_facts", "q": "Can computers think?", "a": "They process, not truly think."}
+{"category": "yes_no_facts", "q": "Can computers feel?", "a": "No, they do not feel."}
+{"category": "yes_no_facts", "q": "Is a year 365 days?", "a": "Yes, 366 in leap years."}
+{"category": "yes_no_facts", "q": "Is a week 7 days?", "a": "Yes, seven days."}
+{"category": "yes_no_facts", "q": "Is a minute 60 seconds?", "a": "Yes, sixty seconds."}
+{"category": "yes_no_facts", "q": "Is an hour 60 minutes?", "a": "Yes, sixty minutes."}
+{"category": "yes_no_facts", "q": "Is a day 24 hours?", "a": "Yes, twenty four hours."}
+{"category": "yes_no_facts", "q": "Are dinosaurs alive today?", "a": "No, they are extinct."}
+{"category": "yes_no_facts", "q": "Are birds related to dinosaurs?", "a": "Yes, they descend from them."}
+{"category": "yes_no_facts", "q": "Is the moon farther than the sun?", "a": "No, the sun is much farther."}
+{"category": "yes_no_facts", "q": "Is Mars red?", "a": "Yes, it looks red."}
+{"category": "yes_no_facts", "q": "Is the sun yellow?", "a": "It looks yellow from Earth."}
+{"category": "yes_no_facts", "q": "Is the sea salty?", "a": "Yes, most seas are salty."}
+{"category": "yes_no_facts", "q": "Is fresh water salty?", "a": "No, it is not."}
+{"category": "yes_no_facts", "q": "Is rain salty?", "a": "No, rain is fresh."}
+{"category": "yes_no_facts", "q": "Can fish live in soda?", "a": "No, fish need clean water."}
+{"category": "yes_no_facts", "q": "Can plants grow in the dark?", "a": "Most need light, no."}
+{"category": "yes_no_facts", "q": "Can plants make food?", "a": "Yes, by photosynthesis."}
+{"category": "yes_no_facts", "q": "Do all birds fly?", "a": "No, some like ostriches do not."}
+{"category": "yes_no_facts", "q": "Do all fish have scales?", "a": "Most, but not all."}
+{"category": "yes_no_facts", "q": "Do all mammals have fur?", "a": "Most, except some like dolphins."}
+{"category": "yes_no_facts", "q": "Can a whale breathe underwater?", "a": "No, whales breathe air."}
+{"category": "yes_no_facts", "q": "Can a snake walk?", "a": "No, snakes slither."}
+{"category": "yes_no_facts", "q": "Can a frog fly?", "a": "No, frogs hop."}
+{"category": "yes_no_facts", "q": "Can a kangaroo walk backwards?", "a": "No, kangaroos hop forward."}
+{"category": "yes_no_facts", "q": "Are cats nocturnal?", "a": "Mostly, yes."}
+{"category": "yes_no_facts", "q": "Are owls nocturnal?", "a": "Yes, owls are active at night."}
+{"category": "yes_no_facts", "q": "Do bears hibernate?", "a": "Yes, in winter."}
+{"category": "yes_no_facts", "q": "Do birds migrate?", "a": "Many birds do."}
+{"category": "yes_no_facts", "q": "Is a peanut a nut?", "a": "No, it is a legume."}
+{"category": "yes_no_facts", "q": "Is a strawberry a berry?", "a": "Botanically no."}
+{"category": "yes_no_facts", "q": "Is a banana a berry?", "a": "Botanically yes."}
+{"category": "yes_no_facts", "q": "Is a watermelon a berry?", "a": "Botanically yes."}
+{"category": "yes_no_facts", "q": "Is honey sweet?", "a": "Yes, very sweet."}
+{"category": "yes_no_facts", "q": "Is salt salty?", "a": "Yes, of course."}
+{"category": "yes_no_facts", "q": "Is sugar sweet?", "a": "Yes, sweet."}
+{"category": "yes_no_facts", "q": "Is lemon sour?", "a": "Yes, sour."}
+{"category": "yes_no_facts", "q": "Is chili spicy?", "a": "Yes, chili is spicy."}
+{"category": "yes_no_facts", "q": "Is coffee bitter?", "a": "Yes, often bitter."}
+{"category": "yes_no_facts", "q": "Is chocolate sweet?", "a": "Yes, most chocolate is sweet."}
+{"category": "yes_no_facts", "q": "Is dark chocolate sweet?", "a": "Less so, more bitter."}
+{"category": "yes_no_facts", "q": "Does a clock tell time?", "a": "Yes, that is its job."}
+{"category": "yes_no_facts", "q": "Does a phone call people?", "a": "Yes, that is its job."}
+{"category": "yes_no_facts", "q": "Does a fridge cool food?", "a": "Yes, to keep it fresh."}
+{"category": "yes_no_facts", "q": "Does an oven heat food?", "a": "Yes, to cook it."}
+{"category": "yes_no_facts", "q": "Is reading fun?", "a": "Many people enjoy reading."}
+{"category": "yes_no_facts", "q": "Is learning fun?", "a": "It can be very fun."}
+{"category": "yes_no_facts", "q": "Can rocks float?", "a": "Pumice can, others sink."}
+{"category": "yes_no_facts", "q": "Can wood float?", "a": "Yes, most wood floats."}
+{"category": "yes_no_facts", "q": "Quick: is the sun hot?", "a": "Yes, very hot."}
+{"category": "yes_no_facts", "q": "Quick: is the moon hot?", "a": "No, the moon is cold."}
+{"category": "yes_no_facts", "q": "Quick: is water wet?", "a": "Yes, water is wet."}
+{"category": "yes_no_facts", "q": "Quick: is ice cold?", "a": "Yes, ice is cold."}
+{"category": "yes_no_facts", "q": "Quick: is fire hot?", "a": "Yes, fire is hot."}
+{"category": "yes_no_facts", "q": "Quick: is snow cold?", "a": "Yes, snow is cold."}
+{"category": "yes_no_facts", "q": "Quick: is the sky blue?", "a": "Yes, often it is."}
+{"category": "yes_no_facts", "q": "Quick: is grass green?", "a": "Yes, usually green."}
+{"category": "yes_no_facts", "q": "Quick: is a tomato a fruit?", "a": "Yes, it is."}
+{"category": "yes_no_facts", "q": "Quick: is a potato a fruit?", "a": "No, it is a vegetable."}
+{"category": "yes_no_facts", "q": "Quick: are dolphins fish?", "a": "No, they are mammals."}
+{"category": "yes_no_facts", "q": "Quick: are whales fish?", "a": "No, they are mammals."}
+{"category": "yes_no_facts", "q": "Quick: are bats birds?", "a": "No, they are mammals."}
+{"category": "yes_no_facts", "q": "Quick: are penguins birds?", "a": "Yes, they are."}
+{"category": "yes_no_facts", "q": "Quick: can pigs fly?", "a": "No, pigs cannot fly."}
+{"category": "yes_no_facts", "q": "Quick: can dogs talk?", "a": "No, dogs cannot speak."}
+{"category": "yes_no_facts", "q": "Quick: can fish breathe air?", "a": "No, they need water."}
+{"category": "yes_no_facts", "q": "Quick: can cats swim?", "a": "Most cats can, but dislike water."}
+{"category": "yes_no_facts", "q": "Quick: can humans fly?", "a": "Not without machines."}
+{"category": "yes_no_facts", "q": "Quick: is earth round?", "a": "Yes, roughly a sphere."}
+{"category": "yes_no_facts", "q": "Quick: is earth flat?", "a": "No, it is round."}
+{"category": "yes_no_facts", "q": "Quick: is the sun a star?", "a": "Yes, it is."}
+{"category": "yes_no_facts", "q": "Quick: is pluto a planet?", "a": "No, it is a dwarf planet."}
+{"category": "yes_no_facts", "q": "Quick: is the moon a planet?", "a": "No, it is a satellite."}
+{"category": "yes_no_facts", "q": "Quick: does the sun rise in the east?", "a": "Yes, in the east."}
+{"category": "yes_no_facts", "q": "Quick: does the sun set in the west?", "a": "Yes, in the west."}
+{"category": "yes_no_facts", "q": "Quick: is gold heavy?", "a": "Yes, gold is dense and heavy."}
+{"category": "yes_no_facts", "q": "Quick: is wood light?", "a": "Most wood is light."}
+{"category": "yes_no_facts", "q": "Quick: is iron magnetic?", "a": "Yes, iron is magnetic."}
+{"category": "yes_no_facts", "q": "Quick: is glass solid?", "a": "Yes, glass is a solid."}
+{"category": "yes_no_facts", "q": "Quick: is air a liquid?", "a": "No, air is a gas."}
+{"category": "yes_no_facts", "q": "Quick: is steam a gas?", "a": "Yes, water vapor."}
+{"category": "yes_no_facts", "q": "Quick: is water a liquid?", "a": "Yes, at room temperature."}
+{"category": "yes_no_facts", "q": "Quick: is sand a solid?", "a": "Yes, made of solid grains."}
+{"category": "yes_no_facts", "q": "Quick: is a triangle a shape?", "a": "Yes, with three sides."}
+{"category": "yes_no_facts", "q": "Quick: is a circle a shape?", "a": "Yes, round shape."}
+{"category": "yes_no_facts", "q": "Quick: is the moon bigger than earth?", "a": "No, much smaller."}
+{"category": "yes_no_facts", "q": "Quick: is jupiter bigger than earth?", "a": "Yes, much bigger."}
+{"category": "yes_no_facts", "q": "Quick: is the pacific bigger than the atlantic?", "a": "Yes, much bigger."}
+{"category": "yes_no_facts", "q": "Quick: is mount everest tall?", "a": "Yes, the tallest mountain."}
+{"category": "yes_no_facts", "q": "Quick: is the nile a long river?", "a": "Yes, one of the longest."}
+{"category": "yes_no_facts", "q": "Quick: are stars bigger than planets?", "a": "Yes, much bigger."}
+{"category": "yes_no_facts", "q": "Quick: is light faster than sound?", "a": "Yes, much faster."}
+{"category": "yes_no_facts", "q": "Quick: is sound faster than walking?", "a": "Yes, far faster."}
+{"category": "yes_no_facts", "q": "Quick: is winter colder than summer?", "a": "Yes, in most places."}
+{"category": "yes_no_facts", "q": "Quick: is summer warmer than winter?", "a": "Yes, in most places."}
+{"category": "yes_no_facts", "q": "Quick: is december a winter month?", "a": "Yes, in the north."}
+{"category": "yes_no_facts", "q": "Quick: is july a summer month?", "a": "Yes, in the north."}
+{"category": "yes_no_facts", "q": "Quick: is 7 a prime number?", "a": "Yes, 7 is prime."}
+{"category": "yes_no_facts", "q": "Quick: is 9 a prime number?", "a": "No, 9 is 3 times 3."}
+{"category": "yes_no_facts", "q": "Quick: is 0 an even number?", "a": "Yes, zero is even."}
+{"category": "yes_no_facts", "q": "Quick: is 1 a prime number?", "a": "No, 1 is not prime."}
+{"category": "yes_no_facts", "q": "Quick: is pi exactly 3.14?", "a": "No, pi is endless."}
+{"category": "yes_no_facts", "q": "Quick: is a square a rectangle?", "a": "Yes, a special rectangle."}
+{"category": "yes_no_facts", "q": "Quick: is a circle a polygon?", "a": "No, circles have no sides."}
+{"category": "yes_no_facts", "q": "Quick: is the earth older than humans?", "a": "Yes, far older."}
+{"category": "yes_no_facts", "q": "Quick: is africa a continent?", "a": "Yes, a continent."}
+{"category": "yes_no_facts", "q": "Quick: is australia an island?", "a": "Yes, and a continent."}
+{"category": "yes_no_facts", "q": "Quick: is greenland an island?", "a": "Yes, the largest island."}
+{"category": "yes_no_facts", "q": "Quick: is the arctic an ocean?", "a": "Yes, the Arctic Ocean."}
+{"category": "yes_no_facts", "q": "Quick: can computers think?", "a": "They process, not truly think."}
+{"category": "yes_no_facts", "q": "Quick: can computers feel?", "a": "No, they do not feel."}
+{"category": "yes_no_facts", "q": "Quick: is a year 365 days?", "a": "Yes, 366 in leap years."}
+{"category": "yes_no_facts", "q": "Quick: is a week 7 days?", "a": "Yes, seven days."}
+{"category": "yes_no_facts", "q": "Quick: is a minute 60 seconds?", "a": "Yes, sixty seconds."}
+{"category": "yes_no_facts", "q": "Quick: is an hour 60 minutes?", "a": "Yes, sixty minutes."}
+{"category": "yes_no_facts", "q": "Quick: is a day 24 hours?", "a": "Yes, twenty four hours."}
+{"category": "yes_no_facts", "q": "Quick: are dinosaurs alive today?", "a": "No, they are extinct."}
+{"category": "yes_no_facts", "q": "Quick: are birds related to dinosaurs?", "a": "Yes, they descend from them."}
+{"category": "yes_no_facts", "q": "Quick: is the moon farther than the sun?", "a": "No, the sun is much farther."}
+{"category": "yes_no_facts", "q": "Quick: is mars red?", "a": "Yes, it looks red."}
+{"category": "yes_no_facts", "q": "Quick: is the sun yellow?", "a": "It looks yellow from Earth."}
+{"category": "yes_no_facts", "q": "Quick: is the sea salty?", "a": "Yes, most seas are salty."}
+{"category": "yes_no_facts", "q": "Quick: is fresh water salty?", "a": "No, it is not."}
+{"category": "yes_no_facts", "q": "Quick: is rain salty?", "a": "No, rain is fresh."}
+{"category": "yes_no_facts", "q": "Quick: can fish live in soda?", "a": "No, fish need clean water."}
+{"category": "yes_no_facts", "q": "Quick: can plants grow in the dark?", "a": "Most need light, no."}
+{"category": "yes_no_facts", "q": "Quick: can plants make food?", "a": "Yes, by photosynthesis."}
+{"category": "yes_no_facts", "q": "Quick: do all birds fly?", "a": "No, some like ostriches do not."}
+{"category": "yes_no_facts", "q": "Quick: do all fish have scales?", "a": "Most, but not all."}
+{"category": "yes_no_facts", "q": "Quick: do all mammals have fur?", "a": "Most, except some like dolphins."}
+{"category": "yes_no_facts", "q": "Quick: can a whale breathe underwater?", "a": "No, whales breathe air."}
+{"category": "yes_no_facts", "q": "Quick: can a snake walk?", "a": "No, snakes slither."}
+{"category": "yes_no_facts", "q": "Quick: can a frog fly?", "a": "No, frogs hop."}
+{"category": "yes_no_facts", "q": "Quick: can a kangaroo walk backwards?", "a": "No, kangaroos hop forward."}
+{"category": "yes_no_facts", "q": "Quick: are cats nocturnal?", "a": "Mostly, yes."}
+{"category": "yes_no_facts", "q": "Quick: are owls nocturnal?", "a": "Yes, owls are active at night."}
+{"category": "yes_no_facts", "q": "Quick: do bears hibernate?", "a": "Yes, in winter."}
+{"category": "yes_no_facts", "q": "Quick: do birds migrate?", "a": "Many birds do."}
+{"category": "yes_no_facts", "q": "Quick: is a peanut a nut?", "a": "No, it is a legume."}
+{"category": "yes_no_facts", "q": "Quick: is a strawberry a berry?", "a": "Botanically no."}

@@ -1,0 +1,80 @@
+{"category": "weather", "q": "What causes rain?", "a": "Water vapor cooling in clouds."}
+{"category": "weather", "q": "What causes wind?", "a": "Air moving due to pressure."}
+{"category": "weather", "q": "What is a cloud?", "a": "Tiny droplets of water in the sky."}
+{"category": "weather", "q": "What is a thunderstorm?", "a": "Storm with thunder and lightning."}
+{"category": "weather", "q": "What is a tornado?", "a": "A violent rotating wind column."}
+{"category": "weather", "q": "What is a hurricane?", "a": "A huge tropical storm."}
+{"category": "weather", "q": "What is a typhoon?", "a": "A hurricane in the Pacific."}
+{"category": "weather", "q": "What is a blizzard?", "a": "A heavy snowstorm with wind."}
+{"category": "weather", "q": "What is fog?", "a": "A cloud near the ground."}
+{"category": "weather", "q": "What is dew?", "a": "Water drops on cool surfaces."}
+{"category": "weather", "q": "What is frost?", "a": "Frozen dew on surfaces."}
+{"category": "weather", "q": "What is hail?", "a": "Balls of ice from storms."}
+{"category": "weather", "q": "What causes lightning?", "a": "Electric build up in clouds."}
+{"category": "weather", "q": "What causes thunder?", "a": "Air heated by lightning."}
+{"category": "weather", "q": "How hot is the desert?", "a": "Often above 40 C in day."}
+{"category": "weather", "q": "How cold is Antarctica?", "a": "Below minus 50 C in winter."}
+{"category": "weather", "q": "What is humidity?", "a": "Water vapor in the air."}
+{"category": "weather", "q": "What is temperature?", "a": "How hot or cold something is."}
+{"category": "weather", "q": "What is Celsius?", "a": "A common temperature scale."}
+{"category": "weather", "q": "What is Fahrenheit?", "a": "Another temperature scale."}
+{"category": "weather", "q": "What is Kelvin?", "a": "Scientific temperature scale."}
+{"category": "weather", "q": "What is the freezing point?", "a": "0 C or 32 F."}
+{"category": "weather", "q": "What is body temperature?", "a": "About 37 C or 98.6 F."}
+{"category": "weather", "q": "What is sunny?", "a": "Bright with sun, no clouds."}
+{"category": "weather", "q": "What is cloudy?", "a": "Sky covered with clouds."}
+{"category": "weather", "q": "What is rainy?", "a": "Rain is falling."}
+{"category": "weather", "q": "What is snowy?", "a": "Snow is falling."}
+{"category": "weather", "q": "What is breezy?", "a": "A light wind blowing."}
+{"category": "weather", "q": "What is windy?", "a": "Strong wind blowing."}
+{"category": "weather", "q": "Is the weather hot today?", "a": "It can vary, please check."}
+{"category": "weather", "q": "Will it rain today?", "a": "I cannot check live weather."}
+{"category": "weather", "q": "Is it cold outside?", "a": "I cannot tell without data."}
+{"category": "weather", "q": "How is the weather?", "a": "I cannot check current weather."}
+{"category": "weather", "q": "What is climate?", "a": "Long term weather patterns."}
+{"category": "weather", "q": "What is climate change?", "a": "Long term shift in climate."}
+{"category": "weather", "q": "What is global warming?", "a": "Earth warming over time."}
+{"category": "weather", "q": "What causes climate change?", "a": "Greenhouse gases mainly."}
+{"category": "weather", "q": "What is the greenhouse effect?", "a": "Heat trapped by atmosphere gas."}
+{"category": "weather", "q": "What is the ozone layer?", "a": "Layer blocking UV in sky."}
+{"category": "weather", "q": "What is acid rain?", "a": "Rain with pollution acids."}
+{"category": "weather", "q": "Weather: what causes rain?", "a": "Water vapor cooling in clouds."}
+{"category": "weather", "q": "Weather: what causes wind?", "a": "Air moving due to pressure."}
+{"category": "weather", "q": "Weather: what is a cloud?", "a": "Tiny droplets of water in the sky."}
+{"category": "weather", "q": "Weather: what is a thunderstorm?", "a": "Storm with thunder and lightning."}
+{"category": "weather", "q": "Weather: what is a tornado?", "a": "A violent rotating wind column."}
+{"category": "weather", "q": "Weather: what is a hurricane?", "a": "A huge tropical storm."}
+{"category": "weather", "q": "Weather: what is a typhoon?", "a": "A hurricane in the Pacific."}
+{"category": "weather", "q": "Weather: what is a blizzard?", "a": "A heavy snowstorm with wind."}
+{"category": "weather", "q": "Weather: what is fog?", "a": "A cloud near the ground."}
+{"category": "weather", "q": "Weather: what is dew?", "a": "Water drops on cool surfaces."}
+{"category": "weather", "q": "Weather: what is frost?", "a": "Frozen dew on surfaces."}
+{"category": "weather", "q": "Weather: what is hail?", "a": "Balls of ice from storms."}
+{"category": "weather", "q": "Weather: what causes lightning?", "a": "Electric build up in clouds."}
+{"category": "weather", "q": "Weather: what causes thunder?", "a": "Air heated by lightning."}
+{"category": "weather", "q": "Weather: how hot is the desert?", "a": "Often above 40 C in day."}
+{"category": "weather", "q": "Weather: how cold is antarctica?", "a": "Below minus 50 C in winter."}
+{"category": "weather", "q": "Weather: what is humidity?", "a": "Water vapor in the air."}
+{"category": "weather", "q": "Weather: what is temperature?", "a": "How hot or cold something is."}
+{"category": "weather", "q": "Weather: what is celsius?", "a": "A common temperature scale."}
+{"category": "weather", "q": "Weather: what is fahrenheit?", "a": "Another temperature scale."}
+{"category": "weather", "q": "Weather: what is kelvin?", "a": "Scientific temperature scale."}
+{"category": "weather", "q": "Weather: what is the freezing point?", "a": "0 C or 32 F."}
+{"category": "weather", "q": "Weather: what is body temperature?", "a": "About 37 C or 98.6 F."}
+{"category": "weather", "q": "Weather: what is sunny?", "a": "Bright with sun, no clouds."}
+{"category": "weather", "q": "Weather: what is cloudy?", "a": "Sky covered with clouds."}
+{"category": "weather", "q": "Weather: what is rainy?", "a": "Rain is falling."}
+{"category": "weather", "q": "Weather: what is snowy?", "a": "Snow is falling."}
+{"category": "weather", "q": "Weather: what is breezy?", "a": "A light wind blowing."}
+{"category": "weather", "q": "Weather: what is windy?", "a": "Strong wind blowing."}
+{"category": "weather", "q": "Weather: is the weather hot today?", "a": "It can vary, please check."}
+{"category": "weather", "q": "Weather: will it rain today?", "a": "I cannot check live weather."}
+{"category": "weather", "q": "Weather: is it cold outside?", "a": "I cannot tell without data."}
+{"category": "weather", "q": "Weather: how is the weather?", "a": "I cannot check current weather."}
+{"category": "weather", "q": "Weather: what is climate?", "a": "Long term weather patterns."}
+{"category": "weather", "q": "Weather: what is climate change?", "a": "Long term shift in climate."}
+{"category": "weather", "q": "Weather: what is global warming?", "a": "Earth warming over time."}
+{"category": "weather", "q": "Weather: what causes climate change?", "a": "Greenhouse gases mainly."}
+{"category": "weather", "q": "Weather: what is the greenhouse effect?", "a": "Heat trapped by atmosphere gas."}
+{"category": "weather", "q": "Weather: what is the ozone layer?", "a": "Layer blocking UV in sky."}
+{"category": "weather", "q": "Weather: what is acid rain?", "a": "Rain with pollution acids."}

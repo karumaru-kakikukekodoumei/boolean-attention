@@ -1,0 +1,27 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.venv/
+venv/
+env/
+.env
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 大きな実験成果物のうち今後追加されるもの (本リポでは checkpoints/ だけ commit 済み)
+*.npy
+*.npz
+*.onnx
+runs/
+wandb/
+mlruns/
+
+# Jekyll (GitHub Pages local build)
+docs/_site/
+docs/.jekyll-cache/
+docs/Gemfile.lock

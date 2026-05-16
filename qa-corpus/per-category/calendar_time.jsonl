@@ -1,0 +1,100 @@
+{"category": "calendar_time", "q": "How many days in a year?", "a": "365 days, 366 in a leap year."}
+{"category": "calendar_time", "q": "How many days in a leap year?", "a": "366 days."}
+{"category": "calendar_time", "q": "How many days in a month?", "a": "28 to 31 days."}
+{"category": "calendar_time", "q": "How many days in February?", "a": "28 or 29 days."}
+{"category": "calendar_time", "q": "How many days in April?", "a": "30 days."}
+{"category": "calendar_time", "q": "How many days in July?", "a": "31 days."}
+{"category": "calendar_time", "q": "How many months in a year?", "a": "12 months."}
+{"category": "calendar_time", "q": "How many weeks in a year?", "a": "About 52 weeks."}
+{"category": "calendar_time", "q": "How many days in a week?", "a": "7 days."}
+{"category": "calendar_time", "q": "How many hours in a day?", "a": "24 hours."}
+{"category": "calendar_time", "q": "How many minutes in an hour?", "a": "60 minutes."}
+{"category": "calendar_time", "q": "How many seconds in a minute?", "a": "60 seconds."}
+{"category": "calendar_time", "q": "How many seconds in an hour?", "a": "3600 seconds."}
+{"category": "calendar_time", "q": "How many minutes in a day?", "a": "1440 minutes."}
+{"category": "calendar_time", "q": "How many seconds in a day?", "a": "86,400 seconds."}
+{"category": "calendar_time", "q": "How many hours in a week?", "a": "168 hours."}
+{"category": "calendar_time", "q": "Name the months in order.", "a": "January through December."}
+{"category": "calendar_time", "q": "Name the days of the week.", "a": "Sunday through Saturday."}
+{"category": "calendar_time", "q": "What is a decade?", "a": "Ten years."}
+{"category": "calendar_time", "q": "What is a century?", "a": "One hundred years."}
+{"category": "calendar_time", "q": "What is a millennium?", "a": "One thousand years."}
+{"category": "calendar_time", "q": "What is a year?", "a": "Earth's orbit around the sun."}
+{"category": "calendar_time", "q": "What is a month?", "a": "Roughly the moon's cycle."}
+{"category": "calendar_time", "q": "What is a day?", "a": "One Earth rotation."}
+{"category": "calendar_time", "q": "What is noon?", "a": "12 PM, middle of the day."}
+{"category": "calendar_time", "q": "What is midnight?", "a": "12 AM, middle of the night."}
+{"category": "calendar_time", "q": "What is AM?", "a": "Before noon."}
+{"category": "calendar_time", "q": "What is PM?", "a": "After noon."}
+{"category": "calendar_time", "q": "How many days in March?", "a": "31 days."}
+{"category": "calendar_time", "q": "How many days in June?", "a": "30 days."}
+{"category": "calendar_time", "q": "How many days in September?", "a": "30 days."}
+{"category": "calendar_time", "q": "How many days in October?", "a": "31 days."}
+{"category": "calendar_time", "q": "How many days in November?", "a": "30 days."}
+{"category": "calendar_time", "q": "How many days in December?", "a": "31 days."}
+{"category": "calendar_time", "q": "How many days in January?", "a": "31 days."}
+{"category": "calendar_time", "q": "How many days in May?", "a": "31 days."}
+{"category": "calendar_time", "q": "How many days in August?", "a": "31 days."}
+{"category": "calendar_time", "q": "What month has 28 days?", "a": "February sometimes 29."}
+{"category": "calendar_time", "q": "What is the first day of the week?", "a": "Often Sunday or Monday."}
+{"category": "calendar_time", "q": "What is the last day of the week?", "a": "Saturday in many places."}
+{"category": "calendar_time", "q": "What is the weekend?", "a": "Saturday and Sunday."}
+{"category": "calendar_time", "q": "What is a weekday?", "a": "Monday through Friday."}
+{"category": "calendar_time", "q": "What is a leap year?", "a": "A year with an extra day."}
+{"category": "calendar_time", "q": "When is the next leap year after 2024?", "a": "In 2028."}
+{"category": "calendar_time", "q": "Why do leap years exist?", "a": "To keep calendar aligned."}
+{"category": "calendar_time", "q": "What is a quarter of a year?", "a": "Three months."}
+{"category": "calendar_time", "q": "How many quarters in a year?", "a": "Four quarters."}
+{"category": "calendar_time", "q": "How many hours of daylight?", "a": "It varies by season."}
+{"category": "calendar_time", "q": "What season is December?", "a": "Winter in the north."}
+{"category": "calendar_time", "q": "What season is June?", "a": "Summer in the north."}
+{"category": "calendar_time", "q": "Time: how many days in a year?", "a": "365 days, 366 in a leap year."}
+{"category": "calendar_time", "q": "Time: how many days in a leap year?", "a": "366 days."}
+{"category": "calendar_time", "q": "Time: how many days in a month?", "a": "28 to 31 days."}
+{"category": "calendar_time", "q": "Time: how many days in february?", "a": "28 or 29 days."}
+{"category": "calendar_time", "q": "Time: how many days in april?", "a": "30 days."}
+{"category": "calendar_time", "q": "Time: how many days in july?", "a": "31 days."}
+{"category": "calendar_time", "q": "Time: how many months in a year?", "a": "12 months."}
+{"category": "calendar_time", "q": "Time: how many weeks in a year?", "a": "About 52 weeks."}
+{"category": "calendar_time", "q": "Time: how many days in a week?", "a": "7 days."}
+{"category": "calendar_time", "q": "Time: how many hours in a day?", "a": "24 hours."}
+{"category": "calendar_time", "q": "Time: how many minutes in an hour?", "a": "60 minutes."}
+{"category": "calendar_time", "q": "Time: how many seconds in a minute?", "a": "60 seconds."}
+{"category": "calendar_time", "q": "Time: how many seconds in an hour?", "a": "3600 seconds."}
+{"category": "calendar_time", "q": "Time: how many minutes in a day?", "a": "1440 minutes."}
+{"category": "calendar_time", "q": "Time: how many seconds in a day?", "a": "86,400 seconds."}
+{"category": "calendar_time", "q": "Time: how many hours in a week?", "a": "168 hours."}
+{"category": "calendar_time", "q": "Time: name the months in order.", "a": "January through December."}
+{"category": "calendar_time", "q": "Time: name the days of the week.", "a": "Sunday through Saturday."}
+{"category": "calendar_time", "q": "Time: what is a decade?", "a": "Ten years."}
+{"category": "calendar_time", "q": "Time: what is a century?", "a": "One hundred years."}
+{"category": "calendar_time", "q": "Time: what is a millennium?", "a": "One thousand years."}
+{"category": "calendar_time", "q": "Time: what is a year?", "a": "Earth's orbit around the sun."}
+{"category": "calendar_time", "q": "Time: what is a month?", "a": "Roughly the moon's cycle."}
+{"category": "calendar_time", "q": "Time: what is a day?", "a": "One Earth rotation."}
+{"category": "calendar_time", "q": "Time: what is noon?", "a": "12 PM, middle of the day."}
+{"category": "calendar_time", "q": "Time: what is midnight?", "a": "12 AM, middle of the night."}
+{"category": "calendar_time", "q": "Time: what is am?", "a": "Before noon."}
+{"category": "calendar_time", "q": "Time: what is pm?", "a": "After noon."}
+{"category": "calendar_time", "q": "Time: how many days in march?", "a": "31 days."}
+{"category": "calendar_time", "q": "Time: how many days in june?", "a": "30 days."}
+{"category": "calendar_time", "q": "Time: how many days in september?", "a": "30 days."}
+{"category": "calendar_time", "q": "Time: how many days in october?", "a": "31 days."}
+{"category": "calendar_time", "q": "Time: how many days in november?", "a": "30 days."}
+{"category": "calendar_time", "q": "Time: how many days in december?", "a": "31 days."}
+{"category": "calendar_time", "q": "Time: how many days in january?", "a": "31 days."}
+{"category": "calendar_time", "q": "Time: how many days in may?", "a": "31 days."}
+{"category": "calendar_time", "q": "Time: how many days in august?", "a": "31 days."}
+{"category": "calendar_time", "q": "Time: what month has 28 days?", "a": "February sometimes 29."}
+{"category": "calendar_time", "q": "Time: what is the first day of the week?", "a": "Often Sunday or Monday."}
+{"category": "calendar_time", "q": "Time: what is the last day of the week?", "a": "Saturday in many places."}
+{"category": "calendar_time", "q": "Time: what is the weekend?", "a": "Saturday and Sunday."}
+{"category": "calendar_time", "q": "Time: what is a weekday?", "a": "Monday through Friday."}
+{"category": "calendar_time", "q": "Time: what is a leap year?", "a": "A year with an extra day."}
+{"category": "calendar_time", "q": "Time: when is the next leap year after 2024?", "a": "In 2028."}
+{"category": "calendar_time", "q": "Time: why do leap years exist?", "a": "To keep calendar aligned."}
+{"category": "calendar_time", "q": "Time: what is a quarter of a year?", "a": "Three months."}
+{"category": "calendar_time", "q": "Time: how many quarters in a year?", "a": "Four quarters."}
+{"category": "calendar_time", "q": "Time: how many hours of daylight?", "a": "It varies by season."}
+{"category": "calendar_time", "q": "Time: what season is december?", "a": "Winter in the north."}
+{"category": "calendar_time", "q": "Time: what season is june?", "a": "Summer in the north."}

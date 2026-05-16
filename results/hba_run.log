@@ -1,0 +1,112 @@
+﻿====================================================================
+  HBA Char-LM — Hierarchical Boolean Attention
+  Device: CPU  PyTorch 2.7.0+cpu
+====================================================================
+[CLI] epochs: 60
+[data] cache hit: 1,115,394 chars
+
+[vocab] size=61  text_len=80,000
+[data] train=71,984  val=7,984  context_len=16
+
+[HBA] params: 92,365
+  hidden_dim=64, n_layers=2, n_heads=4
+  router_hidden=[64, 32]
+  lambda_ent=0.01
+  head: spectral_norm
+  grad_clip: max_norm=1.0
+
+====================================================================
+  HBA training  epochs=60  batch=256  lr=0.003
+  Temperature: 1.0 -> 0.1  (warm_hold=25%)
+  Entropy regularization: lambda_ent=0.01
+====================================================================
+
+  Ep  tau  CE  EntReg  TotLoss  ValPPL  AvgMaskH
+  --------------------------------------------------------------
+  6  1.000  1.7481  -1.7434  0.0048  5.85 174.906311
+  12  1.000  1.5232  -1.7442  -0.2209  5.40 174.966522
+  18  0.858  1.3771  -1.7450  -0.3678  5.61 174.951187
+  24  0.631  1.2528  -1.7453  -0.4925  6.00 174.831360
+  30  0.464  1.1420  -1.7456  -0.6036  6.44 174.929184
+  36  0.341  1.0361  -1.7461  -0.7100  7.34 174.976669
+  42  0.251  0.9470  -1.7461  -0.7991  8.40 175.001343
+  48  0.185  0.8753  -1.7455  -0.8702  9.10 174.917114
+  54  0.136  0.8310  -1.7432  -0.9122  9.66 174.678314
+  60  0.100  0.8204  -1.7348  -0.9144  9.75 173.729340
+
+  Training time: 676.3s (11.3min)
+
+[Router Stats]
+  Final mask entropy: 173.729340
+  (0 に近い = collapse、0.6931 付近 = 最大多様性)
+  OK: ルーター entropy は健全範囲
+
+[collapse] HBA -> HardHBA (router のみ {0,1} 化)...
+
+====================================================================
+  Generated text: HBA soft — greedy
+====================================================================
+  ['First '] -> 'First toock my fire, you well so me; and therefore, the gods and t'
+  ['To be '] -> 'To be bood for, that he counters, for the common\ndistder the warm,'
+  ['The ki'] -> 'The kingue thee was done the people, where they have been their ma'
+
+====================================================================
+  Generated text: HBA soft — sampled (temp=0.8)
+====================================================================
+  ['First '] -> 'First that sent: here is to dercdul\nHis voice the yet.\n\nCOMINIUS:\n'
+  ['To be '] -> 'To be ragues\nWhat hearts that do you,\nYour suddence with them; for'
+  ['The ki'] -> 'The kingue\nWith us That will gary wissemptering the multies me the'
+
+====================================================================
+  Generated text: HBA Hard (router hard {0,1})
+====================================================================
+  ['First '] -> "First oor dinieans: lenigh,\nreOL meleps\nevo seirgNing, o'ld aaul!i"
+  ['To be '] -> "To be ofoltedory lonure.\n\ncofnIU woulsh sene: here\nlspaiess o't:\nu"
+  ['The ki'] -> 'The kiwon\ndidtter inquicious want aoulher.\n\nAur, serlabliing.\nAmen'
+
+====================================================================
+  HBA vs DLGN flat vs Transformer — 比較表
+====================================================================
+  Model  Params  ValPPL  Speed(tok/s)
+  ----------------------------------------------------------------
+  HBA (soft)  92,365  9.75  18,454
+  HBA (hard, router={0,1})  92,365  37.47  22,828
+  DLGN flat (soft) [前回]  1,362,813  11.83  18,299
+  DLGN flat (hard) [前回]  1,362,813  15.16  61,991
+  Transformer [前回]  108,861  4.86  51,291
+
+====================================================================
+  Perplexity curve (HBA)
+====================================================================
+  Epoch  ValPPL
+  --------------------
+  6  5.85
+  12  5.40
+  18  5.61
+  24  6.00
+  30  6.44
+  36  7.34
+  42  8.40
+  48  9.10
+  54  9.66
+  60  9.75
+
+====================================================================
+  分析
+====================================================================
+  判定: HBA が DLGN flat より改善 (Boolean Attention 有効)
+  HBA soft PPL:  9.75
+  HBA hard PPL:  37.47
+  DLGN flat PPL [前回]: 11.83
+  Transformer PPL [前回]: 4.86
+  Final mask entropy:  173.729340
+  (ルーター collapse なし)
+  Soft speed:  18,454 tok/s
+  Hard speed:  22,828 tok/s  (1.24x soft)
+  Hard vs TF [前回]: 0.45x
+
+  
+  - ルーター entropy 正則化: 適用済み (lambda_ent=0.0100)
+  - mean pooling 廃止: 各位置が独立保持 → attention で選択的集約
+  - Looped 反復なし: 誤差累積ゼロ
+

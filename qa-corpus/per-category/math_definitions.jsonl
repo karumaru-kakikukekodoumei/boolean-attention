@@ -1,0 +1,78 @@
+{"category": "math_definitions", "q": "What is a prime number?", "a": "A number divisible only by 1 and itself."}
+{"category": "math_definitions", "q": "What is an even number?", "a": "A number divisible by 2."}
+{"category": "math_definitions", "q": "What is an odd number?", "a": "A number not divisible by 2."}
+{"category": "math_definitions", "q": "What is a square number?", "a": "A number that is some n times n."}
+{"category": "math_definitions", "q": "What is a fraction?", "a": "A part of a whole, like 1/2."}
+{"category": "math_definitions", "q": "What is a decimal?", "a": "A number with a point, like 3.14."}
+{"category": "math_definitions", "q": "What is pi?", "a": "Pi is about 3.14159, a circle ratio."}
+{"category": "math_definitions", "q": "What is zero?", "a": "Zero means nothing, the absence of count."}
+{"category": "math_definitions", "q": "What is infinity?", "a": "Infinity is endless, without bound."}
+{"category": "math_definitions", "q": "What is a triangle?", "a": "A shape with three sides."}
+{"category": "math_definitions", "q": "What is a square shape?", "a": "A shape with four equal sides."}
+{"category": "math_definitions", "q": "What is a circle?", "a": "A round shape with no corners."}
+{"category": "math_definitions", "q": "What is a rectangle?", "a": "A shape with four right angles."}
+{"category": "math_definitions", "q": "What is a sum?", "a": "The result of adding numbers."}
+{"category": "math_definitions", "q": "What is a difference?", "a": "The result of subtracting numbers."}
+{"category": "math_definitions", "q": "What is a product?", "a": "The result of multiplying numbers."}
+{"category": "math_definitions", "q": "What is a quotient?", "a": "The result of dividing numbers."}
+{"category": "math_definitions", "q": "What is a variable?", "a": "A symbol for an unknown number."}
+{"category": "math_definitions", "q": "What is an equation?", "a": "Two sides set equal by an equals sign."}
+{"category": "math_definitions", "q": "What is a function?", "a": "A rule that maps inputs to outputs."}
+{"category": "math_definitions", "q": "What is geometry?", "a": "The math of shapes and space."}
+{"category": "math_definitions", "q": "What is algebra?", "a": "Math with letters and equations."}
+{"category": "math_definitions", "q": "What is calculus?", "a": "Math of change and slopes."}
+{"category": "math_definitions", "q": "What is a percent?", "a": "A part out of one hundred."}
+{"category": "math_definitions", "q": "What is an angle?", "a": "A turn between two lines."}
+{"category": "math_definitions", "q": "What is a right angle?", "a": "An angle of ninety degrees."}
+{"category": "math_definitions", "q": "What is a parallel?", "a": "Two lines never meeting."}
+{"category": "math_definitions", "q": "What is a polygon?", "a": "A shape with many straight sides."}
+{"category": "math_definitions", "q": "What is symmetry?", "a": "A balance across an axis."}
+{"category": "math_definitions", "q": "What is a graph?", "a": "A drawing of data or functions."}
+{"category": "math_definitions", "q": "What does sum mean?", "a": "It means to add up numbers."}
+{"category": "math_definitions", "q": "What does product mean?", "a": "It means to multiply numbers."}
+{"category": "math_definitions", "q": "What is a remainder?", "a": "What is left after division."}
+{"category": "math_definitions", "q": "What is a divisor?", "a": "The number you divide by."}
+{"category": "math_definitions", "q": "What is a factor?", "a": "A number that divides another."}
+{"category": "math_definitions", "q": "What is multiplication?", "a": "Repeated addition of a number."}
+{"category": "math_definitions", "q": "What is division?", "a": "Splitting a number into equal parts."}
+{"category": "math_definitions", "q": "What is subtraction?", "a": "Taking one number from another."}
+{"category": "math_definitions", "q": "What is addition?", "a": "Putting numbers together."}
+{"category": "math_definitions", "q": "What is an integer?", "a": "A whole number, positive or negative."}
+{"category": "math_definitions", "q": "Define a prime number.", "a": "A number divisible only by 1 and itself."}
+{"category": "math_definitions", "q": "Define an even number.", "a": "A number divisible by 2."}
+{"category": "math_definitions", "q": "Define an odd number.", "a": "A number not divisible by 2."}
+{"category": "math_definitions", "q": "Define a square number.", "a": "A number that is some n times n."}
+{"category": "math_definitions", "q": "Define a fraction.", "a": "A part of a whole, like 1/2."}
+{"category": "math_definitions", "q": "Define a decimal.", "a": "A number with a point, like 3.14."}
+{"category": "math_definitions", "q": "Define pi.", "a": "Pi is about 3.14159, a circle ratio."}
+{"category": "math_definitions", "q": "Define zero.", "a": "Zero means nothing, the absence of count."}
+{"category": "math_definitions", "q": "Define infinity.", "a": "Infinity is endless, without bound."}
+{"category": "math_definitions", "q": "Define a triangle.", "a": "A shape with three sides."}
+{"category": "math_definitions", "q": "Define a square shape.", "a": "A shape with four equal sides."}
+{"category": "math_definitions", "q": "Define a circle.", "a": "A round shape with no corners."}
+{"category": "math_definitions", "q": "Define a rectangle.", "a": "A shape with four right angles."}
+{"category": "math_definitions", "q": "Define a sum.", "a": "The result of adding numbers."}
+{"category": "math_definitions", "q": "Define a difference.", "a": "The result of subtracting numbers."}
+{"category": "math_definitions", "q": "Define a product.", "a": "The result of multiplying numbers."}
+{"category": "math_definitions", "q": "Define a quotient.", "a": "The result of dividing numbers."}
+{"category": "math_definitions", "q": "Define a variable.", "a": "A symbol for an unknown number."}
+{"category": "math_definitions", "q": "Define an equation.", "a": "Two sides set equal by an equals sign."}
+{"category": "math_definitions", "q": "Define a function.", "a": "A rule that maps inputs to outputs."}
+{"category": "math_definitions", "q": "Define geometry.", "a": "The math of shapes and space."}
+{"category": "math_definitions", "q": "Define algebra.", "a": "Math with letters and equations."}
+{"category": "math_definitions", "q": "Define calculus.", "a": "Math of change and slopes."}
+{"category": "math_definitions", "q": "Define a percent.", "a": "A part out of one hundred."}
+{"category": "math_definitions", "q": "Define an angle.", "a": "A turn between two lines."}
+{"category": "math_definitions", "q": "Define a right angle.", "a": "An angle of ninety degrees."}
+{"category": "math_definitions", "q": "Define a parallel.", "a": "Two lines never meeting."}
+{"category": "math_definitions", "q": "Define a polygon.", "a": "A shape with many straight sides."}
+{"category": "math_definitions", "q": "Define symmetry.", "a": "A balance across an axis."}
+{"category": "math_definitions", "q": "Define a graph.", "a": "A drawing of data or functions."}
+{"category": "math_definitions", "q": "Define a remainder.", "a": "What is left after division."}
+{"category": "math_definitions", "q": "Define a divisor.", "a": "The number you divide by."}
+{"category": "math_definitions", "q": "Define a factor.", "a": "A number that divides another."}
+{"category": "math_definitions", "q": "Define multiplication.", "a": "Repeated addition of a number."}
+{"category": "math_definitions", "q": "Define division.", "a": "Splitting a number into equal parts."}
+{"category": "math_definitions", "q": "Define subtraction.", "a": "Taking one number from another."}
+{"category": "math_definitions", "q": "Define addition.", "a": "Putting numbers together."}
+{"category": "math_definitions", "q": "Define an integer.", "a": "A whole number, positive or negative."}
